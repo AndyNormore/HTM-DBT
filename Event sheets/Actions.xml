@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Actions</name>
+    <events>
+        <variable constant="0" name="transitionSpeed" sid="9553512686312526" static="0" type="number">80</variable>
+        <event-block sid="3366364342099143">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="622859374618014" type="System" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="7149030063426279" type="Action">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="27315911288117" type="camera">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6704616244732458">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="7096637932346371" type="Touch">
+                    <param id="0" name="Object">Action</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="3985166955467075" type="camera">
+                    <param id="0" name="Instance variable">transition</param>
+                    <param id="1" name="Value">&quot;right&quot;</param>
+                </action>
+                <action id="-10" name="Set value" sid="8776605104331047" type="camera">
+                    <param id="0" name="Instance variable">layout</param>
+                    <param id="1" name="Value">&quot;Map&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4261854512459865">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="9924077422482164" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4431742001245084">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7031340774213246" type="camera">
+                            <param id="0" name="Instance variable">transition</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;down&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="4976828107922091" type="camera">
+                            <param id="0" name="Y">camera.Y + transitionSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6520863765865573">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="4239455553174307" type="camera">
+                            <param id="0" name="Instance variable">transition</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="4527464912191828" type="camera">
+                            <param id="0" name="X">camera.X + transitionSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3377146626813593">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="8934546426229316" type="camera" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4196516671799125">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="52378290435662" type="camera">
+                            <param id="0" name="Instance variable">layout</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Home&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="8463585596456387" type="System">
+                            <param id="0" name="Layout">Home</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3617298783048765">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1161503316250536" type="camera">
+                            <param id="0" name="Instance variable">layout</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Map&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="23426145002906" type="System">
+                            <param id="0" name="Layout">Map</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

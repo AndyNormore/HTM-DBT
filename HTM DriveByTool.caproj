@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>HTM DriveByTool</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>2m2oqhlgof90t</unique-id>
+    <saved-with-version>20402</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_FirebaseAPIV3" version="1">Firebase API v3</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_Authentication" version="0.100000001">Authentication</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemMonitor" version="0.100000001">Item monitor</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemTable" version="0.100000001">Item table</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Geocoding" version="0.100000001">Geocoding</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Hash" version="0.5">JSON</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_JSONBuider" version="0.100000001">JSON buider</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Rex.Rainbow" id="rex_googlemap" version="0.100000001">Google map</plugin>
+        <plugin author="Rex.Rainbow" id="rex_googlemap_api" version="0.100000001">Google map api</plugin>
+        <plugin author="Rex.Rainbow" id="rex_googlemap_infowindow" version="0.100000001">Info window</plugin>
+        <plugin author="Rex.Rainbow" id="rex_googlemap_marker" version="0.100000001">Marker</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1080</width>
+        <height>1920</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Home</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Portrait</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preview browser">Firefox</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="Map">
+            <object-type global="1" name="Geocoding" sid="393061215311919">
+                <plugin id="Rex_Geocoding" />
+            </object-type>
+            <object-type name="GoogleMap" sid="4815588711105418">
+                <plugin id="rex_googlemap" />
+            </object-type>
+            <object-type name="GoogleMapApi" sid="8180557644839224">
+                <plugin id="rex_googlemap_api" />
+            </object-type>
+            <object-type global="1" name="MarkerNew" sid="9107122997595826">
+                <plugin id="rex_googlemap_marker" />
+                <instance-variables>
+                    <instance-variable name="id" sid="5058222952629626" type="string" />
+                    <instance-variable name="LatLng" sid="7918202136364276" type="string" />
+                    <instance-variable name="address" sid="8527272826994643" type="number" />
+                </instance-variables>
+            </object-type>
+        </object-folder>
+        <object-folder name="UI">
+            <object-type name="ButtonSubmitProperty" sid="6155460628080264">
+                <plugin id="Button" />
+            </object-type>
+            <object-type name="TextBoxAddProperty" sid="5106894378628402">
+                <plugin id="TextBox" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Assets">
+            <object-type name="htmLogo" sid="3080827608763974">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2376296113543075" speed="5">
+                        <frame duration="1" hotspotX="0.501502" hotspotY="0.502994" original-source="C:\C2\htm-logo-large.png">
+                            <collision-poly>
+                                <point x="0.015015" y="0.0299401" />
+                                <point x="0.498498" y="0.251497" />
+                                <point x="0.837838" y="0.323353" />
+                                <point x="1" y="0.497006" />
+                                <point x="0.906907" y="0.814371" />
+                                <point x="0.498498" y="0.796407" />
+                                <point x="0.0600601" y="0.88024" />
+                                <point x="0" y="0.497006" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="htmlogolargewhite" sid="3593019860304758">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9245540035082347" speed="5">
+                        <frame duration="1" hotspotX="0.501502" hotspotY="0.502994" original-source="C:\C2\htm-logo-large-white.png">
+                            <collision-poly>
+                                <point x="0.015015" y="0.0299401" />
+                                <point x="0.498498" y="0.251497" />
+                                <point x="0.837838" y="0.323353" />
+                                <point x="1" y="0.497006" />
+                                <point x="0.906907" y="0.814371" />
+                                <point x="0.498498" y="0.796407" />
+                                <point x="0.0600601" y="0.88024" />
+                                <point x="0" y="0.497006" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="rectangleWhite" sid="7526705343054947">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9004886972838897" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="rectangleBlue" sid="688853234118658">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5211496502187735" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="squareBlue" sid="7059882426799064">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="251361403584847" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="iconAt" sid="1119051122867056">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8799222292366999" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\at.png">
+                            <collision-poly>
+                                <point x="0.216561" y="0.195402" />
+                                <point x="0.496815" y="0.114943" />
+                                <point x="0.77707" y="0.201149" />
+                                <point x="0.923567" y="0.5" />
+                                <point x="0.675159" y="0.706897" />
+                                <point x="0.496815" y="0.908046" />
+                                <point x="0.203822" y="0.816092" />
+                                <point x="0.044586" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="iconKey" sid="1499688382677617">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="924972474232767" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\key.png">
+                            <collision-poly>
+                                <point x="0.319444" y="0.319444" />
+                                <point x="0.5" y="0.0416667" />
+                                <point x="0.895833" y="0.104167" />
+                                <point x="0.958333" y="0.5" />
+                                <point x="0.680556" y="0.680556" />
+                                <point x="0.5" y="0.75" />
+                                <point x="0.0138889" y="0.986111" />
+                                <point x="0.284722" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="iconSignIn" sid="7783690571692867">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4489886544124564" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\sign-in.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.327273" />
+                                <point x="0.5" y="0.190909" />
+                                <point x="0.944444" y="0.0727273" />
+                                <point x="1" y="0.5" />
+                                <point x="0.9375" y="0.918182" />
+                                <point x="0.5" y="0.836364" />
+                                <point x="0.236111" y="0.690909" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="textLargeClear" sid="6096687800181514">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="textOverButton" sid="2894290541324212">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="inputEmail" sid="8077356965021404">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="inputPassword" sid="8838794676517925">
+                <plugin id="TextBox" />
+            </object-type>
+        </object-folder>
+        <object-type global="1" name="ItemTable" sid="7103656686544143">
+            <plugin id="Rex_Firebase_ItemTable" />
+        </object-type>
+        <object-type name="Browser" sid="8300270815248107">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type global="1" name="FirebaseAPIV3" sid="6662622280304699">
+            <plugin id="Rex_FirebaseAPIV3" />
+        </object-type>
+        <object-type global="1" name="Authentication" sid="552053695093841">
+            <plugin id="Rex_Firebase_Authentication" />
+        </object-type>
+        <object-type global="1" name="Firebase" sid="3991953348089986">
+            <plugin id="Rex_Firebase" />
+        </object-type>
+        <object-type global="1" name="ItemMonitor" sid="9950757236658432">
+            <plugin id="Rex_Firebase_ItemMonitor" />
+        </object-type>
+        <object-type name="Function" sid="5309241918211061">
+            <plugin id="Function" />
+        </object-type>
+        <object-type global="1" name="JSON" sid="5885383670210859">
+            <plugin id="Rex_Hash" />
+        </object-type>
+        <object-type global="1" name="InfoWindow" sid="3970855546083032">
+            <plugin id="rex_googlemap_infowindow" />
+        </object-type>
+        <object-type global="1" name="JSONBuider" sid="1420820841546632">
+            <plugin id="Rex_JSONBuider" />
+        </object-type>
+        <object-type name="Action" sid="4400852577113768">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="theAction" sid="3241706127634766" type="string" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7876023952163012" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="8074767365907475">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="camera" sid="341146675784161">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="transition" sid="4410094106485616" type="string" />
+                <instance-variable name="layout" sid="7435606101086517" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="1093004311241712">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5243428423582006" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Home.xml</layout>
+        <layout>Map.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Map.xml</event-sheet>
+        <event-sheet>Home.xml</event-sheet>
+        <event-sheet>Actions.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="GoogleMapApi" uid="0">
+            <properties>
+                <initial-loading>No</initial-loading>
+                <api-key>AIzaSyBVCfx77UouAvnSAsP-a08N0ho7RRgXzIo</api-key>
+                <language-code></language-code>
+                <api-url>maps.googleapis.com</api-url>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="7" />
+        <global-instance type="Function" uid="13" />
+        <global-instance type="Touch" uid="30">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

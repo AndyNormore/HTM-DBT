@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Map</name>
+    <events>
+        <variable constant="0" name="theFunctionFix" sid="6152779459082576" static="0" type="text"></variable>
+        <variable constant="0" name="theNewData" sid="415684919486094" static="0" type="text"></variable>
+        <variable constant="0" name="theGeneratedKey" sid="6430443731960017" static="0" type="text"></variable>
+        <event-block sid="8134893068902054">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5234038957491015" type="System" />
+            </conditions>
+            <actions>
+                <action id="11" name="Login" sid="9613947759979199" type="Authentication">
+                    <param id="0" name="Remember">0</param>
+                </action>
+                <action id="1" name="Load" sid="2031009813209316" type="GoogleMapApi" />
+                <action id="13" name="Load all" sid="8966863141337651" type="ItemTable">
+                    <param id="0" name="Tag">&quot;all&quot;</param>
+                </action>
+                <action id="1" name="Start" sid="1002082563386394" type="ItemMonitor" />
+            </actions>
+        </event-block>
+        <event-block sid="7367963640061525">
+            <conditions>
+                <condition id="1" name="On loaded" sid="3155980464581295" type="GoogleMapApi" />
+            </conditions>
+            <actions>
+                <action id="1" name="Set center" sid="5443133982776514" type="GoogleMap">
+                    <param id="0" name="Latitude">44.166252</param>
+                    <param id="1" name="Longitude"> -77.388615</param>
+                </action>
+                <action id="3" name="Set zoom level" sid="4011765527611035" type="GoogleMap">
+                    <param id="0" name="Zoom level">10</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="564667179440598">
+            <conditions>
+                <condition id="11" name="On load complete" sid="317587044226089" type="ItemTable">
+                    <param id="0" name="Tag">&quot;all&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3382160442396962">
+                    <conditions>
+                        <condition id="13" name="For each key" sid="9214499658860472" type="ItemTable">
+                            <param id="0" name="ID">&quot;properties&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Load JSON" sid="6789111425999966" type="JSON">
+                            <param id="0" name="JSON string">ItemTable.CurValue</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4077243693318137">
+                            <conditions>
+                                <condition id="1" name="For each item" sid="7588667604617806" type="JSON">
+                                    <param id="0" name="Key string">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8433587946483726" type="System">
+                                    <param id="0" name="Object to create">MarkerNew</param>
+                                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="1" name="Put on map" sid="5291462222813269" type="MarkerNew">
+                                    <param id="0" name="Map">GoogleMap</param>
+                                    <param id="1" name="Latitude">float(JSON.AtKeys(&quot;lat&quot;))</param>
+                                    <param id="2" name="Longitude">float(JSON.AtKeys(&quot;lng&quot;))</param>
+                                </action>
+                                <action id="21" name="Set title" sid="5386946119615349" type="MarkerNew">
+                                    <param id="0" name="Title">JSON.AtKeys(&quot;address&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8997251264751258" type="MarkerNew">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">JSON.AtKeys(&quot;address&quot;)</param>
+                                </action>
+                                <action id="1" name="Set center" sid="6659796241449293" type="GoogleMap">
+                                    <param id="0" name="Latitude">float(JSON.AtKeys(&quot;lat&quot;))</param>
+                                    <param id="1" name="Longitude">float(JSON.AtKeys(&quot;lng&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="7300759144048038" title="MapsNew">
+            <sub-events>
+                <event-block sid="2507213773574031">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="8036139871763186" type="ButtonSubmitProperty" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="3576001149307677" type="Function">
+                            <param id="0" name="Name">&quot;generateNewProperty&quot;</param>
+                            <param id="1" name="Parameter {n}">TextBoxAddProperty.Text</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="75287039758752">
+                    <conditions>
+                        <condition id="0" name="On function" sid="3154426883027676" type="Function">
+                            <param id="0" name="Name">&quot;generateNewProperty&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8135443249200335" type="System">
+                            <param id="0" name="Variable">theFunctionFix</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="theKey" sid="3341842851658069" static="0" type="text">&quot;UNSET&quot;</variable>
+                        <event-block sid="2568268210788657">
+                            <conditions />
+                            <actions>
+                                <action id="3" name="Set enabled" sid="8113877956122627" type="ButtonSubmitProperty">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                                <action id="11" name="Convert address to LatLng" sid="2196339480651616" type="Geocoding">
+                                    <param id="0" name="Address">str(theFunctionFix)</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6012943609575993" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8822310737699602" type="System">
+                                    <param id="0" name="Variable">theKey</param>
+                                    <param id="1" name="Value">ItemTable.GenerateKey</param>
+                                </action>
+                                <action id="1" name="Set value" sid="3949295866031361" type="ItemTable">
+                                    <param id="0" name="Key">theKey</param>
+                                    <param id="1" name="Value">&quot;{&quot;&quot;address&quot;&quot;:&quot;&quot;&quot;&amp;theFunctionFix&amp;&quot;&quot;&quot;,&quot;&quot;lat&quot;&quot;:&quot;&quot;&quot;&amp;Geocoding.LastLatitude&amp;&quot;&quot;&quot;,&quot;&quot;lng&quot;&quot;:&quot;&quot;&quot;&amp;Geocoding.LastLongitude&amp;&quot;&quot;&quot;}&quot;</param>
+                                </action>
+                                <action id="4" name="Save" sid="2206393053438763" type="ItemTable">
+                                    <param id="0" name="ID">&quot;properties&quot;</param>
+                                    <param id="1" name="Set mode">0</param>
+                                    <param id="2" name="Tag">&quot;_&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5323764383255108" type="ButtonSubmitProperty">
+                                    <param id="0" name="Text">&quot;Add Property&quot;</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="3426644725490844" type="ButtonSubmitProperty">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="4897628417531719" type="System">
+                                    <param id="0" name="Object to create">MarkerNew</param>
+                                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="1" name="Put on map" sid="9299144680257819" type="MarkerNew">
+                                    <param id="0" name="Map">GoogleMap</param>
+                                    <param id="1" name="Latitude">Geocoding.LastLatitude</param>
+                                    <param id="2" name="Longitude">Geocoding.LastLongitude</param>
+                                </action>
+                                <action id="21" name="Set title" sid="2631841418519486" type="MarkerNew">
+                                    <param id="0" name="Title">Geocoding.LastLatitude&amp;&quot;:&quot;&amp;Geocoding.LastLongitude</param>
+                                </action>
+                                <action disabled="1" id="1" name="Set center" sid="8078251365533514" type="GoogleMap">
+                                    <param id="0" name="Latitude">Geocoding.LastLatitude</param>
+                                    <param id="1" name="Longitude">Geocoding.LastLongitude</param>
+                                </action>
+                                <action disabled="1" id="3" name="Set zoom level" sid="7456811438479227" type="GoogleMap">
+                                    <param id="0" name="Zoom level">12</param>
+                                </action>
+                                <action disabled="1" id="101" name="Refresh" sid="4240622665315233" type="GoogleMap" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="907972144820401" title="MapsUpdate">
+            <sub-events>
+                <event-block sid="2970051221927512">
+                    <conditions>
+                        <condition id="4" name="On any value changed" sid="9404587641216861" type="ItemMonitor" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Load JSON" sid="371008232246278" type="JSON">
+                            <param id="0" name="JSON string">ItemMonitor.LastValue</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="theKey" sid="4158699001730614" static="0" type="text">&quot;UNSET&quot;</variable>
+                        <event-block sid="5476344095392101">
+                            <conditions>
+                                <condition id="1" name="For each item" sid="9887672268234356" type="JSON">
+                                    <param id="0" name="Key string">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="11" name="Convert address to LatLng" sid="1554589664195327" type="Geocoding">
+                                    <param id="0" name="Address">JSON.AtKeys(&quot;address&quot;)</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="9866958821944058" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7735682756718087" type="System">
+                                    <param id="0" name="Variable">theKey</param>
+                                    <param id="1" name="Value">ItemMonitor.LastPropertyName</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="8298551095944805">
+                                    <conditions>
+                                        <condition id="2" name="Set root" sid="2013112653013954" type="JSONBuider">
+                                            <param id="0" name="Type">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Add value" sid="4408127827740373" type="JSONBuider">
+                                            <param id="0" name="Key">&quot;address&quot;</param>
+                                            <param id="1" name="Value">JSON.AtKeys(&quot;address&quot;)</param>
+                                        </action>
+                                        <action id="2" name="Add value" sid="2674126470586541" type="JSONBuider">
+                                            <param id="0" name="Key">&quot;lat&quot;</param>
+                                            <param id="1" name="Value">float(Geocoding.LastLatitude)</param>
+                                        </action>
+                                        <action id="2" name="Add value" sid="6606141384779528" type="JSONBuider">
+                                            <param id="0" name="Key">&quot;lng&quot;</param>
+                                            <param id="1" name="Value">float(Geocoding.LastLongitude)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4215579502564872">
+                                    <conditions />
+                                    <actions>
+                                        <action id="1" name="Set value" sid="3959968601819827" type="ItemTable">
+                                            <param id="0" name="Key">theKey</param>
+                                            <param id="1" name="Value">JSONBuider.AsJSON</param>
+                                        </action>
+                                        <action id="4" name="Save" sid="7952061442949212" type="ItemTable">
+                                            <param id="0" name="ID">&quot;properties&quot;</param>
+                                            <param id="1" name="Set mode">0</param>
+                                            <param id="2" name="Tag">&quot;_&quot;</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="9477687359405688" type="System">
+                                            <param id="0" name="Object to create">MarkerNew</param>
+                                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                        <action id="1" name="Put on map" sid="5170292854323675" type="MarkerNew">
+                                            <param id="0" name="Map">GoogleMap</param>
+                                            <param id="1" name="Latitude">float(Geocoding.LastLatitude)</param>
+                                            <param id="2" name="Longitude">float(Geocoding.LastLongitude)</param>
+                                        </action>
+                                        <action id="21" name="Set title" sid="1353038395360534" type="MarkerNew">
+                                            <param id="0" name="Title">JSON.AtKeys(&quot;address&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="1717199572521642">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="3658294043968832" type="System">
+                                    <param id="0" name="Object">MarkerNew</param>
+                                    <param id="1" name="Expression">MarkerNew.Title</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">ItemMonitor.CurValue</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="3047418001300878" type="MarkerNew" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3872960479907281" title="MapsInfo">
+            <sub-events>
+                <event-block sid="8149339807272281">
+                    <conditions>
+                        <condition id="1" name="On clicked" sid="3216753455017371" type="MarkerNew" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="6" name="Remove" sid="6626849237182458" type="ItemTable">
+                            <param id="0" name="ID">&quot;-LHd41CtNOaavx2Db0KK&quot;</param>
+                            <param id="1" name="Tag">&quot;_&quot;</param>
+                        </action>
+                        <action disabled="1" id="3" name="Remove key" sid="4981978411770812" type="ItemTable">
+                            <param id="0" name="Key">&quot;-LHd41CtNOaavx2Db0KK&quot;</param>
+                        </action>
+                        <action disabled="1" id="31" name="Remove all" sid="1658667974405207" type="ItemTable" />
+                        <action disabled="1" id="13" name="Load all" sid="9628088265741506" type="ItemTable">
+                            <param id="0" name="Tag">&quot;all&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="7031249331322032">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="2726148612100739" type="System">
+                                    <param id="0" name="Object">MarkerNew</param>
+                                    <param id="1" name="Expression">MarkerNew.Latitude</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="8711785043542298" type="MarkerNew" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="9397910804618399">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="9133593240526623" type="System">
+                                    <param id="0" name="Object to create">InfoWindow</param>
+                                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                                <action id="1" name="Put on map" sid="1124550715142604" type="InfoWindow">
+                                    <param id="0" name="Map">GoogleMap</param>
+                                    <param id="1" name="Latitude">MarkerNew.Latitude</param>
+                                    <param id="2" name="Longitude">MarkerNew.Longitude</param>
+                                </action>
+                                <action id="21" name="Set content" sid="1801221035853664" type="InfoWindow">
+                                    <param id="0" name="Content">&quot;&lt;div style=&quot;&quot;color:black;&quot;&quot;&gt;&lt;h2&gt;&quot;&amp;json.AtKeys(&quot;address&quot;)&amp;&quot;&lt;/h2&gt;&lt;br /&gt;Status:New&lt;br /&gt;&lt;a href=&quot;&quot;#&quot;&quot; target=&quot;&quot;_blank&quot;&quot;&gt;Get Directions&lt;/a&gt;&lt;/div&gt;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block disabled="1" sid="2215430968036416">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="1325687453418367" type="System">
+                                    <param id="0" name="Object">MarkerNew</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="260532265681842" type="MarkerNew" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
