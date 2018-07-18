@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Map</name>
     <events>
+        <include>Actions</include>
         <variable constant="0" name="theFunctionFix" sid="6152779459082576" static="0" type="text"></variable>
         <variable constant="0" name="theNewData" sid="415684919486094" static="0" type="text"></variable>
         <variable constant="0" name="theGeneratedKey" sid="6430443731960017" static="0" type="text"></variable>

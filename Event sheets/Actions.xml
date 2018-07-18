@@ -15,6 +15,9 @@
                 <action id="-15" name="Set visible" sid="27315911288117" type="camera">
                     <param id="0" name="Visibility">0</param>
                 </action>
+                <action id="-15" name="Set visible" sid="8083695878541015" type="Sprite3">
+                    <param id="0" name="Visibility">0</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="6704616244732458">
@@ -28,10 +31,6 @@
                     <param id="0" name="Instance variable">transition</param>
                     <param id="1" name="Value">&quot;right&quot;</param>
                 </action>
-                <action id="-10" name="Set value" sid="8776605104331047" type="camera">
-                    <param id="0" name="Instance variable">layout</param>
-                    <param id="1" name="Value">&quot;Map&quot;</param>
-                </action>
             </actions>
         </event-block>
         <event-block sid="4261854512459865">
@@ -40,20 +39,6 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="4431742001245084">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="7031340774213246" type="camera">
-                            <param id="0" name="Instance variable">transition</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;down&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="4976828107922091" type="camera">
-                            <param id="0" name="Y">camera.Y + transitionSpeed</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="6520863765865573">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="4239455553174307" type="camera">
@@ -65,6 +50,20 @@
                     <actions>
                         <action id="-1" name="Set X" sid="4527464912191828" type="camera">
                             <param id="0" name="X">camera.X + transitionSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4431742001245084">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7031340774213246" type="camera">
+                            <param id="0" name="Instance variable">transition</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;down&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="4976828107922091" type="camera">
+                            <param id="0" name="Y">camera.Y + transitionSpeed</param>
                         </action>
                     </actions>
                 </event-block>
