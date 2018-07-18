@@ -4,5 +4,28 @@
     <name>Home</name>
     <events>
         <include>Actions</include>
+        <event-block sid="3961782294834115">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9917046071490719" type="System" />
+            </conditions>
+            <actions>
+                <action id="7" name="Set CSS style" sid="9690130662759312" type="inputEmail">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;3vw&quot;</param>
+                </action>
+                <action id="7" name="Set CSS style" sid="1074108564441535" type="inputEmail">
+                    <param id="0" name="Property name">&quot;border&quot;</param>
+                    <param id="1" name="Value">&quot;none&quot;</param>
+                </action>
+                <action id="7" name="Set CSS style" sid="1656433795697577" type="inputPassword">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;3vw&quot;</param>
+                </action>
+                <action id="7" name="Set CSS style" sid="6290417828362367" type="inputPassword">
+                    <param id="0" name="Property name">&quot;border&quot;</param>
+                    <param id="1" name="Value">&quot;none&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
