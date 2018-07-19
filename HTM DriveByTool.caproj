@@ -13,9 +13,13 @@
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
         <plugin author="Rex.Rainbow" id="Rex_FirebaseAPIV3" version="1">Firebase API v3</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase_Authentication" version="0.100000001">Authentication</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemBook" version="0.100000001">Item book</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemMonitor" version="0.100000001">Item monitor</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase_ItemTable" version="0.100000001">Item table</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Geocoding" version="0.100000001">Geocoding</plugin>
@@ -33,7 +37,6 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
-        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
     </used-behaviors>
     <used-effects />
@@ -68,11 +71,6 @@
             </object-type>
             <object-type name="GoogleMap" sid="4815588711105418">
                 <plugin id="rex_googlemap" />
-                <behaviors>
-                    <behavior-type name="Fade" sid="4829775917716963">
-                        <behavior id="Fade" />
-                    </behavior-type>
-                </behaviors>
             </object-type>
             <object-type name="GoogleMapApi" sid="8180557644839224">
                 <plugin id="rex_googlemap_api" />
@@ -304,6 +302,163 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="uiGide" sid="4431776224274989">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5155199051997235" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="menuIcon" sid="7453075239978519">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4181530103359077" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\menu.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="uiAdd" sid="894865048756116">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3109192318837068" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\create.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="rectangleWhite2" sid="8300470665261324">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="goto" sid="4559755470886759" type="number" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="sideMenu" sid="910854584085875">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8192515073594005" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="textLabel" sid="8889495034257691">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="inputProjectTitle" sid="9780459694189684">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="expand" sid="1411345497744532">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="open" pingpong="0" repeatcount="1" repeatto="0" sid="5937481795217477" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\expand.png">
+                            <collision-poly>
+                                <point x="0.0238095" y="0.0238095" />
+                                <point x="0.97619" y="0.0238095" />
+                                <point x="0.97619" y="0.97619" />
+                                <point x="0.0238095" y="0.97619" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="close" pingpong="0" repeatcount="1" repeatto="0" sid="9861159182625038" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\exitFullScreen.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="modalBackground" sid="4553968689389987">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="modalBody" sid="9485258705278725">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="close" sid="4777083818484918">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7999457347430564" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\close.png">
+                            <collision-poly>
+                                <point x="0.157143" y="0.157143" />
+                                <point x="0.5" y="0.00714286" />
+                                <point x="0.842857" y="0.157143" />
+                                <point x="0.985714" y="0.5" />
+                                <point x="0.842857" y="0.842857" />
+                                <point x="0.5" y="0.992857" />
+                                <point x="0.157143" y="0.842857" />
+                                <point x="0.0142857" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type global="1" name="camera" sid="341146675784161">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="transition" sid="4410094106485616" type="string" />
+                    <instance-variable name="layout" sid="7435606101086517" type="string" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="ScrollTo" sid="1093004311241712">
+                        <behavior id="scrollto" />
+                    </behavior-type>
+                    <behavior-type name="Bullet" sid="2914422195604911">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5243428423582006" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Projects">
+            <object-type name="projcetsInfo" sid="6561660065173826">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="goto" sid="3930501042430437" type="string" />
+                    <instance-variable name="action" sid="6553880875551066" type="string" />
+                    <instance-variable comment="Project ID" name="data1" sid="9390049046604207" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectsButton" sid="1674809490620688">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="goto" sid="4062229056782294" type="string" />
+                    <instance-variable name="action" sid="8772458130507568" type="string" />
+                    <instance-variable comment="Project ID" name="data1" sid="6491544920906493" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectsPropertiesComplete" sid="6208590529658462">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsPropertiesNew" sid="547409428204394">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsPropertiesRevisit" sid="4111553040354031">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsStatus" sid="9550990971792566">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsTitle" sid="6476094483647722">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsProperties" sid="7413095672671664">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsMeter" sid="8609694084502483">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="goto" sid="2112174664663535" type="string" />
+                    <instance-variable name="action" sid="7009985378153634" type="string" />
+                    <instance-variable comment="Project ID" name="data1" sid="3466555021430227" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
         </object-folder>
         <object-type global="1" name="ItemTable" sid="7103656686544143">
             <plugin id="Rex_Firebase_ItemTable" />
@@ -335,63 +490,8 @@
         <object-type global="1" name="JSONBuider" sid="1420820841546632">
             <plugin id="Rex_JSONBuider" />
         </object-type>
-        <object-type name="Action" sid="4400852577113768">
-            <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="theAction" sid="3241706127634766" type="string" />
-            </instance-variables>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7876023952163012" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Touch" sid="8074767365907475">
             <plugin id="Touch" />
-        </object-type>
-        <object-type global="1" name="camera" sid="341146675784161">
-            <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="transition" sid="4410094106485616" type="string" />
-                <instance-variable name="layout" sid="7435606101086517" type="string" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="ScrollTo" sid="1093004311241712">
-                    <behavior id="scrollto" />
-                </behavior-type>
-                <behavior-type name="Bullet" sid="2914422195604911">
-                    <behavior id="Bullet" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5243428423582006" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="menuIcon" sid="7453075239978519">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4181530103359077" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\menu.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sprite2" sid="894865048756116">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3109192318837068" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\create.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sprite3" sid="4431776224274989">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5155199051997235" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
         </object-type>
         <object-type name="BG" sid="8541575654241782">
             <plugin id="Sprite" />
@@ -401,48 +501,34 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="expand" sid="1411345497744532">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="open" pingpong="0" repeatcount="1" repeatto="0" sid="5937481795217477" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\expand.png">
-                        <collision-poly>
-                            <point x="0.0238095" y="0.0238095" />
-                            <point x="0.97619" y="0.0238095" />
-                            <point x="0.97619" y="0.97619" />
-                            <point x="0.0238095" y="0.97619" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="1" loop="0" name="close" pingpong="0" repeatcount="1" repeatto="0" sid="9861159182625038" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\exitFullScreen.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Text" sid="8889495034257691">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="sideMenu" sid="910854584085875">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8192515073594005" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="ActionButton" sid="5231610406719307">
             <plugin id="TiledBg" />
             <instance-variables>
                 <instance-variable name="goto" sid="7001535872582318" type="string" />
+                <instance-variable name="action" sid="6434729664048522" type="string" />
+                <instance-variable comment="Project ID" name="data1" sid="7543280486978577" type="string" />
             </instance-variables>
             <texture />
         </object-type>
-        <object-type name="rectangleWhite2" sid="8300470665261324">
-            <plugin id="TiledBg" />
-            <instance-variables>
-                <instance-variable name="goto" sid="4559755470886759" type="number" />
-            </instance-variables>
-            <texture />
+        <object-type name="Mouse" sid="4481577257506812">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="LocalStorage" sid="7589828050573314">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type global="1" name="DATABASE" sid="3033893655331199">
+            <plugin id="Rex_Firebase_ItemBook" />
+        </object-type>
+        <object-type global="1" name="Date" sid="7946153688510086">
+            <plugin id="Rex_Date" />
+        </object-type>
+        <object-type name="viewportNewObjectMarker" sid="209999259299052">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6095467250761458" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />
@@ -456,10 +542,13 @@
         <layout>Menu.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Map.xml</event-sheet>
+        <event-sheet>Project.xml</event-sheet>
         <event-sheet>Home.xml</event-sheet>
         <event-sheet>Actions.xml</event-sheet>
         <event-sheet>Menu.xml</event-sheet>
+        <event-sheet>Projects.xml</event-sheet>
+        <event-sheet>Login.xml</event-sheet>
+        <event-sheet>Logout.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="GoogleMapApi" uid="0">
@@ -477,6 +566,8 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="Mouse" uid="79" />
+        <global-instance type="LocalStorage" uid="86" />
     </global-instances>
     <sounds-folder />
     <music-folder />

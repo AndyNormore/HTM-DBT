@@ -2,7 +2,7 @@
 <c2layout>
     <name>Logout</name>
     <sid>277378695364402</sid>
-    <event-sheet>Home</event-sheet>
+    <event-sheet>Logout</event-sheet>
     <size>
         <width>3840</width>
         <height>2160</height>
@@ -29,7 +29,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Sprite3" uid="56">
+                <instance type="uiGide" uid="56">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -49,6 +49,33 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>0.100000001</opacity>
+                    </world>
+                </instance>
+                <instance type="textLargeClear" uid="88">
+                    <properties>
+                        <text>Logging Out...</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-48,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1389</x>
+                        <y>1031</y>
+                        <z>0</z>
+                        <width>1072</width>
+                        <height>96</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>

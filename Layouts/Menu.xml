@@ -29,7 +29,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Sprite3" uid="40">
+                <instance type="uiGide" uid="40">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -99,12 +99,14 @@
                     </properties>
                     <instance-variables>
                         <goto>Projects</goto>
+                        <action></action>
+                        <data1></data1>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
-                        <y>752</y>
+                        <y>768</y>
                         <z>0</z>
                         <width>320</width>
                         <height>96</height>
@@ -122,12 +124,14 @@
                     </properties>
                     <instance-variables>
                         <goto>Team</goto>
+                        <action></action>
+                        <data1></data1>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
-                        <y>864</y>
+                        <y>880</y>
                         <z>0</z>
                         <width>320</width>
                         <height>96</height>
@@ -145,12 +149,14 @@
                     </properties>
                     <instance-variables>
                         <goto>Logout</goto>
+                        <action></action>
+                        <data1></data1>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
-                        <y>976</y>
+                        <y>992</y>
                         <z>0</z>
                         <width>320</width>
                         <height>96</height>
@@ -168,12 +174,14 @@
                     </properties>
                     <instance-variables>
                         <goto>MasterMap</goto>
+                        <action></action>
+                        <data1></data1>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
-                        <y>640</y>
+                        <y>656</y>
                         <z>0</z>
                         <width>320</width>
                         <height>96</height>
@@ -222,7 +230,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
-                        <y>653</y>
+                        <y>672</y>
                         <z>0</z>
                         <width>208</width>
                         <height>80</height>
@@ -249,7 +257,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
-                        <y>989</y>
+                        <y>1008</y>
                         <z>0</z>
                         <width>208</width>
                         <height>80</height>
@@ -305,28 +313,6 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Sprite2" uid="55">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>2832</x>
-                        <y>589</y>
-                        <z>0</z>
-                        <width>96</width>
-                        <height>96</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -406,11 +392,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1936</x>
-                        <y>1069</y>
+                        <x>1920</x>
+                        <y>1080</y>
                         <z>0</z>
-                        <width>250</width>
-                        <height>250</height>
+                        <width>96</width>
+                        <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -434,7 +420,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
-                        <y>765</y>
+                        <y>784</y>
                         <z>0</z>
                         <width>208</width>
                         <height>80</height>
@@ -461,7 +447,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>736</x>
-                        <y>877</y>
+                        <y>896</y>
                         <z>0</z>
                         <width>208</width>
                         <height>80</height>
@@ -483,7 +469,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>688</x>
-                        <y>685</y>
+                        <y>704</y>
                         <z>0</z>
                         <width>64</width>
                         <height>64</height>
@@ -505,7 +491,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>688</x>
-                        <y>1021</y>
+                        <y>1040</y>
                         <z>0</z>
                         <width>48</width>
                         <height>48</height>
@@ -527,7 +513,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>688</x>
-                        <y>909</y>
+                        <y>928</y>
                         <z>0</z>
                         <width>64</width>
                         <height>48</height>
@@ -549,13 +535,35 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>688</x>
-                        <y>797</y>
+                        <y>816</y>
                         <z>0</z>
                         <width>64</width>
                         <height>48</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="viewportNewObjectMarker" uid="59">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>992</x>
+                        <y>672</y>
+                        <z>0</z>
+                        <width>103.691848755</width>
+                        <height>103.691848755</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

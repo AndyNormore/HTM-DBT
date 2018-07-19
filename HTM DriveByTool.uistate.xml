@@ -10,16 +10,17 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="3">Login</layout>
-        <layout order="4">Project</layout>
-        <layout order="1">Menu</layout>
-        <layout order="7">MasterMap</layout>
-        <layout order="8">Team</layout>
-        <layout order="9">Projects</layout>
-        <event-sheet active="1" order="0">Actions</event-sheet>
-        <event-sheet order="5">Home</event-sheet>
-        <event-sheet order="6">Map</event-sheet>
-        <event-sheet order="2">Menu</event-sheet>
+        <layout order="2">Login</layout>
+        <layout order="5">Menu</layout>
+        <layout order="7">Projects</layout>
+        <layout active="1" order="9">Project</layout>
+        <event-sheet order="0">Actions</event-sheet>
+        <event-sheet order="1">Login</event-sheet>
+        <event-sheet order="3">Home</event-sheet>
+        <event-sheet order="4">Logout</event-sheet>
+        <event-sheet order="6">Menu</event-sheet>
+        <event-sheet order="8">Projects</event-sheet>
+        <event-sheet order="10">Project</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -30,15 +31,16 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1" />
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="1" path="object-folder/Map/" />
-        <folder expanded="1" path="object-folder/UI/" />
+        <folder expanded="0" path="object-folder/Map/" />
+        <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="1" path="object-folder/Assets/" />
+        <folder expanded="1" path="object-folder/Projects/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
-        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/htmLogo/" />
         <folder expanded="1" path="animation-folder/htmlogolargewhite/" />
         <folder expanded="1" path="animation-folder/rectangleWhite/" />
@@ -51,13 +53,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/iconMap/" />
         <folder expanded="1" path="animation-folder/iconPower/" />
         <folder expanded="1" path="animation-folder/iconFolder/" />
-        <folder expanded="1" path="animation-folder/Action/" />
-        <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/uiGide/" />
         <folder expanded="1" path="animation-folder/menuIcon/" />
-        <folder expanded="1" path="animation-folder/Sprite2/" />
-        <folder expanded="1" path="animation-folder/Sprite3/" />
-        <folder expanded="1" path="animation-folder/BG/" />
-        <folder expanded="1" path="animation-folder/expand/" />
+        <folder expanded="1" path="animation-folder/uiAdd/" />
         <folder expanded="1" path="animation-folder/sideMenu/" />
+        <folder expanded="1" path="animation-folder/expand/" />
+        <folder expanded="1" path="animation-folder/close/" />
+        <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/BG/" />
+        <folder expanded="1" path="animation-folder/viewportNewObjectMarker/" />
     </folders-expanded>
 </c2uistate>

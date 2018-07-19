@@ -1,26 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Map</name>
+    <name>Project</name>
     <events>
         <include>Actions</include>
         <variable constant="0" name="theFunctionFix" sid="6152779459082576" static="0" type="text"></variable>
         <variable constant="0" name="theNewData" sid="415684919486094" static="0" type="text"></variable>
         <variable constant="0" name="theGeneratedKey" sid="6430443731960017" static="0" type="text"></variable>
+        <variable constant="0" name="theProjectId" sid="4301847384407447" static="0" type="text"></variable>
         <event-block sid="8134893068902054">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="5234038957491015" type="System" />
             </conditions>
             <actions>
-                <action id="11" name="Login" sid="9613947759979199" type="Authentication">
+                <action id="0" name="Set text" sid="438945644785424" type="menuTitle">
+                    <param id="0" name="Text">&quot;Project: &quot; &amp; theProjectId</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="9592950239076641" type="System">
+                    <param id="0" name="Layer">&quot;modal&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action disabled="1" id="11" name="Login" sid="9613947759979199" type="Authentication">
                     <param id="0" name="Remember">0</param>
                 </action>
-                <action id="1" name="Load" sid="2031009813209316" type="GoogleMapApi" />
                 <action id="13" name="Load all" sid="8966863141337651" type="ItemTable">
                     <param id="0" name="Tag">&quot;all&quot;</param>
                 </action>
                 <action id="1" name="Start" sid="1002082563386394" type="ItemMonitor" />
             </actions>
+            <sub-events>
+                <event-block sid="3452557473407759">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is loaded" sid="5705136523734742" type="GoogleMapApi" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Load" sid="2031009813209316" type="GoogleMapApi" />
+                    </actions>
+                </event-block>
+                <event-block sid="6082867718470284">
+                    <conditions>
+                        <condition id="2" name="Is loaded" sid="4660369843429487" type="GoogleMapApi" />
+                    </conditions>
+                    <actions>
+                        <action id="101" name="Refresh" sid="6613734837552612" type="GoogleMap" />
+                        <action id="1" name="Set center" sid="1514893088596517" type="GoogleMap">
+                            <param id="0" name="Latitude">44.166252</param>
+                            <param id="1" name="Longitude"> -77.388615</param>
+                        </action>
+                        <action id="3" name="Set zoom level" sid="5101801921675601" type="GoogleMap">
+                            <param id="0" name="Zoom level">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="7367963640061525">
             <conditions>

@@ -2,7 +2,7 @@
 <c2layout>
     <name>MasterMap</name>
     <sid>5587994033955128</sid>
-    <event-sheet>Map</event-sheet>
+    <event-sheet>Project</event-sheet>
     <size>
         <width>3840</width>
         <height>2160</height>
@@ -29,7 +29,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Sprite3" uid="46">
+                <instance type="uiGide" uid="46">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>

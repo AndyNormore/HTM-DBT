@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Actions</name>
     <events>
+        <include>Login</include>
         <variable constant="0" name="fullscreen" sid="3601134451348514" static="0" type="number">0</variable>
         <variable constant="0" name="menuOpen" sid="394421074769186" static="0" type="number">0</variable>
         <variable constant="0" name="menuText" sid="4236368495403398" static="0" type="text">Main Menu</variable>
@@ -12,7 +13,10 @@
                 <condition id="-2" name="On start of layout" sid="622859374618014" type="System" />
             </conditions>
             <actions>
-                <action id="-15" name="Set visible" sid="8083695878541015" type="Sprite3">
+                <action id="-15" name="Set visible" sid="2990161515658182" type="viewportNewObjectMarker">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="8083695878541015" type="uiGide">
                     <param id="0" name="Visibility">0</param>
                 </action>
                 <action id="-15" name="Set visible" sid="27315911288117" type="camera">
@@ -29,7 +33,7 @@
                     <param id="0" name="Speed">0</param>
                 </action>
                 <action behavior="Bullet" id="1" name="Set acceleration" sid="9046942032647146" type="camera">
-                    <param id="0" name="Acceleration">4000</param>
+                    <param id="0" name="Acceleration">100000</param>
                 </action>
                 <action behavior="Bullet" id="5" name="Set enabled" sid="7091628207707869" type="camera">
                     <param id="0" name="State">0</param>
@@ -42,6 +46,13 @@
                     <param id="0" name="Instance variable">layout</param>
                     <param id="1" name="Value">&quot;Home&quot;</param>
                 </action>
+                <action id="0" name="Set text" sid="7026690289344725" type="menuTitle">
+                    <param id="0" name="Text">menuText</param>
+                </action>
+                <action id="-9" name="Set value" sid="517314906853602" type="System">
+                    <param id="0" name="Variable">menuOpen</param>
+                    <param id="1" name="Value">0</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="5139214356411861">
@@ -49,7 +60,7 @@
                         <condition id="-8" name="Compare two values" sid="9337677472769873" type="System">
                             <param id="0" name="First value">LayoutName</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Home&quot;</param>
+                            <param id="2" name="Second value">&quot;Login&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -61,6 +72,9 @@
                             <param id="0" name="Instance variable">layout</param>
                             <param id="1" name="Value">&quot;Map&quot;</param>
                         </action>
+                        <action id="-8" name="Set angle" sid="9346573198784669" type="camera">
+                            <param id="0" name="Angle">180</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="4113033135761069">
@@ -68,17 +82,20 @@
                         <condition id="-8" name="Compare two values" sid="4079741115347477" type="System">
                             <param id="0" name="First value">LayoutName</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Map&quot;</param>
+                            <param id="2" name="Second value">&quot;Project&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-10" name="Set value" sid="6247326413356057" type="camera">
                             <param id="0" name="Instance variable">transition</param>
-                            <param id="1" name="Value">&quot;180&quot;</param>
+                            <param id="1" name="Value">&quot;0&quot;</param>
                         </action>
                         <action id="-10" name="Set value" sid="374499150062072" type="camera">
                             <param id="0" name="Instance variable">layout</param>
                             <param id="1" name="Value">&quot;Home&quot;</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="8814483984378677" type="camera">
+                            <param id="0" name="Angle">180</param>
                         </action>
                     </actions>
                 </event-block>
@@ -99,31 +116,115 @@
                             <param id="0" name="Instance variable">layout</param>
                             <param id="1" name="Value">&quot;Home&quot;</param>
                         </action>
+                        <action id="-8" name="Set angle" sid="1006911875418851" type="camera">
+                            <param id="0" name="Angle">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
         <event-block sid="6704616244732458">
             <conditions>
-                <condition id="17" name="On tap object" sid="7096637932346371" type="Touch">
+                <condition id="3" name="On touched object" sid="7096637932346371" type="Touch">
                     <param id="0" name="Object">ActionButton</param>
                 </condition>
             </conditions>
-            <actions>
-                <action behavior="Bullet" id="5" name="Set enabled" sid="3829791505218995" type="camera">
-                    <param id="0" name="State">1</param>
-                </action>
-                <action id="-9" name="Set value" sid="8247225236583" type="System">
-                    <param id="0" name="Variable">setGoto</param>
-                    <param id="1" name="Value">ActionButton.goto</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="2440380312810993">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3300151587687779" type="ActionButton">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="3829791505218995" type="camera">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8247225236583" type="System">
+                            <param id="0" name="Variable">setGoto</param>
+                            <param id="1" name="Value">ActionButton.goto</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2574070418183644">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="2944282875179682" type="ActionButton">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;login&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="return" sid="8312382786716507" static="0" type="number">0</variable>
+                        <event-block sid="5535056863635808">
+                            <conditions>
+                                <condition id="0" name="Compare text" sid="9805636255323246" type="inputEmail">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                    <param id="1" name="Case">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Alert" sid="5861176051008833" type="Browser">
+                                    <param id="0" name="Message">&quot;Invalid Email&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5716323530350035" type="System">
+                                    <param id="0" name="Variable">return</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7149745581863">
+                            <conditions>
+                                <condition id="0" name="Compare text" sid="7109384216038444" type="inputPassword">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                    <param id="1" name="Case">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Alert" sid="7042539118162867" type="Browser">
+                                    <param id="0" name="Message">&quot;Invalid Password&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2449213270957203" type="System">
+                                    <param id="0" name="Variable">return</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9465109899560952">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5533213000236815" type="System">
+                                    <param id="0" name="Variable">return</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set item" sid="8940391646436564" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                                    <param id="1" name="Value">&quot;demo&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2769552823758087" type="System">
+                                    <param id="0" name="Variable">isLoggedIn</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="4432089961713203" type="System">
+                                    <param id="0" name="Layout">Projects</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="6058974762747436">
             <conditions>
                 <condition behavior="Bullet" id="0" name="Compare speed" sid="2204522783249062" type="camera">
                     <param id="0" name="Comparison">4</param>
-                    <param id="1" name="Speed">1500</param>
+                    <param id="1" name="Speed">40000</param>
                 </condition>
             </conditions>
             <actions />
@@ -158,6 +259,10 @@
                         <action id="-2" name="Go to layout" sid="23426145002906" type="System">
                             <param id="0" name="Layout">MasterMap</param>
                         </action>
+                        <action id="-9" name="Set value" sid="9090399625171825" type="System">
+                            <param id="0" name="Variable">menuText</param>
+                            <param id="1" name="Value">&quot;Master Map&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="3484230604742439">
@@ -165,12 +270,16 @@
                         <condition id="-14" name="Compare variable" sid="4136040503858885" type="System">
                             <param id="0" name="Variable">setGoto</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Map&quot;</param>
+                            <param id="2" name="Value">&quot;Project&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Go to layout" sid="7900538351615122" type="System">
                             <param id="0" name="Layout">Project</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4841596950517666" type="System">
+                            <param id="0" name="Variable">menuText</param>
+                            <param id="1" name="Value">&quot;Project ________&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -186,19 +295,9 @@
                         <action id="-2" name="Go to layout" sid="2395171365692135" type="System">
                             <param id="0" name="Layout">Projects</param>
                         </action>
-                    </actions>
-                </event-block>
-                <event-block sid="6418234711131132">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="8162956765634007" type="System">
-                            <param id="0" name="Variable">setGoto</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Project&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Go to layout" sid="3897547701576033" type="System">
-                            <param id="0" name="Layout">Project</param>
+                        <action id="-9" name="Set value" sid="3852737073752052" type="System">
+                            <param id="0" name="Variable">menuText</param>
+                            <param id="1" name="Value">&quot;Projects&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -214,6 +313,10 @@
                         <action id="-2" name="Go to layout" sid="9272368106743021" type="System">
                             <param id="0" name="Layout">Team</param>
                         </action>
+                        <action id="-9" name="Set value" sid="9539531622632533" type="System">
+                            <param id="0" name="Variable">menuText</param>
+                            <param id="1" name="Value">&quot;Manage Team&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="2193855562198457">
@@ -227,6 +330,10 @@
                     <actions>
                         <action id="-2" name="Go to layout" sid="8799661081573908" type="System">
                             <param id="0" name="Layout">Logout</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1490990702115335" type="System">
+                            <param id="0" name="Variable">menuText</param>
+                            <param id="1" name="Value">&quot;Logout&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -316,7 +423,7 @@
         </event-block>
         <event-block sid="6703046565018504">
             <conditions>
-                <condition id="17" name="On tap object" sid="6623301035823797" type="Touch">
+                <condition id="3" name="On touched object" sid="6623301035823797" type="Touch">
                     <param id="0" name="Object">menuIcon</param>
                 </condition>
             </conditions>
@@ -381,5 +488,38 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-group description="" sid="4902300551911284" title="Mouse Scroll">
+            <sub-events>
+                <event-block sid="3809925741136991">
+                    <conditions>
+                        <condition id="8" name="On mouse wheel" sid="6185526469586508" type="Mouse">
+                            <param id="0" name="Direction">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="3219745200128453" type="camera">
+                            <param id="0" name="Y">camera.Y - 25</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1194433512317849">
+                    <conditions>
+                        <condition id="8" name="On mouse wheel" sid="834636125584063" type="Mouse">
+                            <param id="0" name="Direction">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="5028053488342987" type="camera">
+                            <param id="0" name="Y">camera.Y + 25</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1991583712767522" title="Touch Scroll">
+            <sub-events>
+                <comment>TODO: Touch Scroll: https://www.scirra.com/tutorials/560/swipe-based-smooth-scrolling-with-inertia</comment>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

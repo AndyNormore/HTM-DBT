@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Login</name>
+    <events>
+        <variable constant="0" name="isLoggedIn" sid="7394293716169659" static="0" type="number">0</variable>
+        <event-block sid="560401822276176">
+            <conditions>
+                <condition id="9" name="On item exists" sid="8073902100757848" type="LocalStorage">
+                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Alert" sid="4756470498132747" type="Browser">
+                    <param id="0" name="Message">&quot;Login Hash FOUND -- this is an existing user: &quot; </param>
+                </action>
+                <action disabled="1" id="1" name="Get item" sid="9553400751751476" type="LocalStorage">
+                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5064450273276442">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="668808586451584" type="System">
+                            <param id="0" name="Variable">isLoggedIn</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="9012301912191556" type="System">
+                            <param id="0" name="Layout">Projects</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6791241949543184" type="System">
+                            <param id="0" name="Variable">isLoggedIn</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1367388720965094">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6051579936531913" type="System">
+                            <param id="0" name="Variable">isLoggedIn</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2075358574897368">
+            <conditions>
+                <condition id="1" name="On item get" sid="1159432976694828" type="LocalStorage">
+                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="5979226724363416">
+            <conditions>
+                <condition id="10" name="On item missing" sid="641975655949844" type="LocalStorage">
+                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Alert" sid="283449185191656" type="Browser">
+                    <param id="0" name="Message">&quot;Login Hash MISSING -- this is a guest&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="6612664076124653">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="8191268211641948" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Login&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Alert" sid="3782854723251871" type="Browser">
+                            <param id="0" name="Message">&quot;Do Nothing&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7771881073231903">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Compare two values" sid="731691676914887" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Login&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="7344993452744718" type="System">
+                            <param id="0" name="Layout">Login</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1680931566823404">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6957986446552365" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Check item exists" sid="9534610982470641" type="LocalStorage">
+                    <param id="0" name="Key">&quot;loginHash&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
