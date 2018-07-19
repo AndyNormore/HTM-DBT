@@ -398,10 +398,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1072</x>
-                        <y>608</y>
+                        <x>1080</x>
+                        <y>600</y>
                         <z>0</z>
-                        <width>1728</width>
+                        <width>1710</width>
                         <height>800</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -423,10 +423,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2704</x>
-                        <y>608</y>
+                        <x>2710</x>
+                        <y>600</y>
                         <z>0</z>
-                        <width>96</width>
+                        <width>80</width>
                         <height>80</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -445,11 +445,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2752</x>
-                        <y>656</y>
+                        <x>2750</x>
+                        <y>640</y>
                         <z>0</z>
-                        <width>64</width>
-                        <height>64</height>
+                        <width>40</width>
+                        <height>40</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -467,11 +467,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1936</x>
-                        <y>992</y>
+                        <x>1930</x>
+                        <y>720</y>
                         <z>0</z>
-                        <width>1504</width>
-                        <height>128</height>
+                        <width>1500</width>
+                        <height>70</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -495,11 +495,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1392</x>
-                        <y>944</y>
+                        <x>1390</x>
+                        <y>690</y>
                         <z>0</z>
                         <width>1280</width>
-                        <height>96</height>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -507,7 +507,7 @@
                 </instance>
                 <instance type="textLabel" uid="97">
                     <properties>
-                        <text>Project Title</text>
+                        <text>Address 1</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-29,400,0</font>
                         <color>255,255,255</color>
@@ -520,11 +520,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1200</x>
-                        <y>944</y>
+                        <x>1190</x>
+                        <y>690</y>
                         <z>0</z>
-                        <width>192</width>
-                        <height>96</height>
+                        <width>190</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -545,11 +545,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1392</x>
-                        <y>1072</y>
+                        <x>1388</x>
+                        <y>1110</y>
                         <z>0</z>
-                        <width>1296</width>
-                        <height>64</height>
+                        <width>1300</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -572,11 +572,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1488</x>
-                        <y>1056</y>
+                        <x>1480</x>
+                        <y>1110</y>
                         <z>0</z>
-                        <width>192</width>
-                        <height>96</height>
+                        <width>190</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -594,8 +594,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1456</x>
-                        <y>1104</y>
+                        <x>1440</x>
+                        <y>1140</y>
                         <z>0</z>
                         <width>36.612960815</width>
                         <height>27.968236923</height>
@@ -604,6 +604,306 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="squareBlue" uid="101">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1930</x>
+                        <y>800</y>
+                        <z>0</z>
+                        <width>1500</width>
+                        <height>70</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="textLabel" uid="103">
+                    <properties>
+                        <text>Address 2</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-29,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1190</x>
+                        <y>770</y>
+                        <z>0</z>
+                        <width>190</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="squareBlue" uid="104">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1930</x>
+                        <y>880</y>
+                        <z>0</z>
+                        <width>1500</width>
+                        <height>70</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="textLabel" uid="106">
+                    <properties>
+                        <text>City</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-29,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1190</x>
+                        <y>850</y>
+                        <z>0</z>
+                        <width>190</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="squareBlue" uid="107">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1930</x>
+                        <y>960</y>
+                        <z>0</z>
+                        <width>1500</width>
+                        <height>70</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="textLabel" uid="109">
+                    <properties>
+                        <text>Province</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-29,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1190</x>
+                        <y>930</y>
+                        <z>0</z>
+                        <width>190</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="squareBlue" uid="110">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1930</x>
+                        <y>1040</y>
+                        <z>0</z>
+                        <width>1500</width>
+                        <height>70</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="textLabel" uid="112">
+                    <properties>
+                        <text>Postal</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-29,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1190</x>
+                        <y>1010</y>
+                        <z>0</z>
+                        <width>190</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="inputProjectTitle" uid="102">
+                    <properties>
+                        <text></text>
+                        <placeholder></placeholder>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <read-only>No</read-only>
+                        <spell-check>No</spell-check>
+                        <type>Text</type>
+                        <auto-font-size>No</auto-font-size>
+                        <id-optional></id-optional>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1390</x>
+                        <y>770</y>
+                        <z>0</z>
+                        <width>1280</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="inputProjectTitle" uid="105">
+                    <properties>
+                        <text></text>
+                        <placeholder></placeholder>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <read-only>No</read-only>
+                        <spell-check>No</spell-check>
+                        <type>Text</type>
+                        <auto-font-size>No</auto-font-size>
+                        <id-optional></id-optional>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1390</x>
+                        <y>850</y>
+                        <z>0</z>
+                        <width>1280</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="inputProjectTitle" uid="108">
+                    <properties>
+                        <text></text>
+                        <placeholder></placeholder>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <read-only>No</read-only>
+                        <spell-check>No</spell-check>
+                        <type>Text</type>
+                        <auto-font-size>No</auto-font-size>
+                        <id-optional></id-optional>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1390</x>
+                        <y>930</y>
+                        <z>0</z>
+                        <width>1280</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="inputProjectTitle" uid="111">
+                    <properties>
+                        <text></text>
+                        <placeholder></placeholder>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <read-only>No</read-only>
+                        <spell-check>No</spell-check>
+                        <type>Text</type>
+                        <auto-font-size>No</auto-font-size>
+                        <id-optional></id-optional>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1390</x>
+                        <y>1010</y>
+                        <z>0</z>
+                        <width>1280</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                     </world>
                 </instance>
             </instances>
