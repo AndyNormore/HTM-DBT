@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>OfflineReportsCreate</name>
+    <events>
+        <variable constant="0" name="generatePropertyId" sid="8566198784640633" static="0" type="text"></variable>
+        <variable constant="0" name="thePhotoIndex" sid="9981875172388805" static="0" type="number">0</variable>
+        <include>Actions</include>
+        <event-block sid="8848050693057078">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2370292890589782" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Request camera" sid="6061058034032102" type="UserMedia">
+                    <param id="0" name="Source">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9597061879655534" type="System">
+                    <param id="0" name="Variable">generatePropertyId</param>
+                    <param id="1" name="Value">random(100000,999999999)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7764286279258656">
+            <conditions>
+                <condition id="17" name="On tap object" sid="6923675460103918" type="Touch">
+                    <param id="0" name="Object">btnTakePhoto</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Snapshot" sid="7089162071896493" type="UserMedia">
+                    <param id="0" name="Format">1</param>
+                    <param id="1" name="JPEG quality">75</param>
+                </action>
+                <action id="25" name="Insert JSON" sid="3663561457559551" type="JSONimages">
+                    <param id="0" name="Key string">generatePropertyId</param>
+                    <param id="1" name="JSON">&quot;{&quot;&quot;&quot;&amp;thePhotoIndex&amp;&quot;&quot;&quot;:&quot;&quot;&quot;&amp;UserMedia.SnapshotURL&amp;&quot;&quot;&quot;}&quot;</param>
+                    <param id="2" name="Index">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="7033227792406043" type="System">
+                    <param id="0" name="Variable">thePhotoIndex</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="6633731555654958">
+                    <conditions>
+                        <condition id="1" name="For each item" sid="8958118529800133" type="JSONimages">
+                            <param id="0" name="Key string">generatePropertyId</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Load JSON" sid="8055989575044624" type="JSONimages2">
+                            <param id="0" name="JSON string">JSONimages.CurValue</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="index" sid="4769667954505543" static="0" type="number">0</variable>
+                        <event-block sid="5066884075308583">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1160453348386268" type="System">
+                                    <param id="0" name="Variable">index</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="1" name="For each item" sid="3697247536169552" type="JSONimages2">
+                                    <param id="0" name="Key string">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="14" name="Log" sid="6723274402237895" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">str(JSONimages2.CurKey)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="822588144325446">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                                <event-block sid="3769878652328182">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="5922122936000422" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;0&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="586211129083857" type="imageHolder0">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6822924783566046">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="1568162591743223" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;1&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="1626454674297498" type="imageHolder1">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2846423343784603">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="4674148147522151" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;2&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="1593128967409177" type="imageHolder2">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="707180735908488">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="3691190004026368" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;3&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="1466106066753687" type="imageHolder3">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7908757080018989">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="4801779112696252" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;4&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="5332664989702307" type="imageHolder4">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5960668729028411">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="8659737274697661" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;5&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="5874771693243164" type="imageHolder5">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7460171523049652">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2996982915102179" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;6&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="6903610606988824" type="imageHolder6">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3273376353080254">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="8962247269373502" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;7&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="8016011158104494" type="imageHolder7">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1144434471294521">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="9542123189243065" type="System">
+                                            <param id="0" name="First value">JSONimages2.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;8&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Load image from URL" sid="4472878131116461" type="imageHolder8">
+                                            <param id="0" name="URI">JSONimages2.CurValue</param>
+                                            <param id="1" name="Size">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3252949212958026">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="2128152560018551" type="System">
+                                            <param id="0" name="Variable">index</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8167771985385079">
+                                    <conditions />
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3736530181899796">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

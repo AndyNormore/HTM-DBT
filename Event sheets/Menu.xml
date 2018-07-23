@@ -11,6 +11,10 @@
                 <action id="-2" name="Go to layout" sid="7616283822370256" type="System">
                     <param id="0" name="Layout">Login</param>
                 </action>
+                <action id="0" name="Request URL" sid="3658702902519067" type="AJAX">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="URL">&quot;http://localhost:3000/api/ping&quot;</param>
+                </action>
             </actions>
         </event-block>
     </events>

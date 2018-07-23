@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Welcome</name>
+    <events>
+        <variable constant="0" name="touchWait" sid="1778630458574059" static="0" type="number">0</variable>
+        <include>Actions</include>
+        <event-block sid="6498097251092097">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2862558246242157" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set visible" sid="9651391654908683" type="HTMLIFrame">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7502647810251403" type="System">
+                    <param id="0" name="Variable">touchWait</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="3595111294623935" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-9" name="Set value" sid="789767911037514" type="System">
+                    <param id="0" name="Variable">touchWait</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8285508563928812">
+            <conditions>
+                <condition id="17" name="On tap object" sid="814961306710332" type="Touch">
+                    <param id="0" name="Object">welcomeButton</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4595136131522741">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3179327045010983" type="System">
+                            <param id="0" name="Variable">touchWait</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8830299700855644">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2018837129837289" type="welcomeButton">
+                                    <param id="0" name="Instance variable">goto</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;iframe&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action disabled="1" id="8" name="Open URL in new window" sid="4822847217408107" type="Browser">
+                                    <param id="0" name="URL">&quot;https://htm.masterdigitalservices.com&quot;</param>
+                                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                                </action>
+                                <action id="0" name="Set visible" sid="8274554455562122" type="HTMLIFrame">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="13" name="Go to URL" sid="3325798668312591" type="HTMLIFrame">
+                                    <param id="0" name="URL">&quot;http://localhost:3000/&quot;</param>
+                                </action>
+                                <action disabled="1" id="13" name="Go to URL" sid="8903199971222223" type="HTMLIFrame">
+                                    <param id="0" name="URL">&quot;https://htm.masterdigitalservices.com/&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8339587855432301">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="766169150213587" type="welcomeButton">
+                                    <param id="0" name="Instance variable">goto</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;OfflineReportsCreate&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="7910683525094399" type="System">
+                                    <param id="0" name="Layout">OfflineReportsCreate</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8005021900911338">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2310664422906954" type="welcomeButton">
+                                    <param id="0" name="Instance variable">goto</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;OfflineReportsSubmit&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="6715900735710909" type="System">
+                                    <param id="0" name="Layout">OfflineReportsViewProjects</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

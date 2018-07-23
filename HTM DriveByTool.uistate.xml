@@ -10,17 +10,20 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="2">Login</layout>
-        <layout order="5">Menu</layout>
-        <layout order="7">Projects</layout>
-        <layout active="1" order="9">Project</layout>
+        <layout order="1">Menu</layout>
+        <layout order="5">Welcome</layout>
+        <layout order="7">OfflineReportsViewProjects</layout>
+        <layout order="9">OfflineReportsViewProject</layout>
+        <layout order="11">Project</layout>
+        <layout active="1" order="12">OfflineReportsCreate</layout>
         <event-sheet order="0">Actions</event-sheet>
-        <event-sheet order="1">Login</event-sheet>
+        <event-sheet order="2">Menu</event-sheet>
         <event-sheet order="3">Home</event-sheet>
         <event-sheet order="4">Logout</event-sheet>
-        <event-sheet order="6">Menu</event-sheet>
-        <event-sheet order="8">Projects</event-sheet>
-        <event-sheet order="10">Project</event-sheet>
+        <event-sheet order="6">Welcome</event-sheet>
+        <event-sheet order="8">OfflineReportsViewProjects</event-sheet>
+        <event-sheet order="10">OfflineReportsViewProject</event-sheet>
+        <event-sheet order="13">OfflineReportsCreate</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -60,7 +63,19 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/expand/" />
         <folder expanded="1" path="animation-folder/close/" />
         <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/iconFolder2/" />
+        <folder expanded="1" path="animation-folder/squareBlue2/" />
         <folder expanded="1" path="animation-folder/BG/" />
         <folder expanded="1" path="animation-folder/viewportNewObjectMarker/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/imageHolder0/" />
+        <folder expanded="1" path="animation-folder/imageHolder1/" />
+        <folder expanded="1" path="animation-folder/imageHolder2/" />
+        <folder expanded="1" path="animation-folder/imageHolder3/" />
+        <folder expanded="1" path="animation-folder/imageHolder4/" />
+        <folder expanded="1" path="animation-folder/imageHolder5/" />
+        <folder expanded="1" path="animation-folder/imageHolder6/" />
+        <folder expanded="1" path="animation-folder/imageHolder7/" />
+        <folder expanded="1" path="animation-folder/imageHolder8/" />
     </folders-expanded>
 </c2uistate>

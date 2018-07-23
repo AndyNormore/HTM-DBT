@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>OfflineReportsViewProject</name>
+    <events>
+        <variable constant="0" name="selectedProjectId" sid="1316120603702948" static="0" type="text"></variable>
+        <variable constant="0" name="selectedPolicyNumber" sid="4687982713009898" static="0" type="text"></variable>
+        <variable constant="0" name="selectedAddress1" sid="3293256098770716" static="0" type="text"></variable>
+        <variable constant="0" name="selectedAddress2" sid="221914818492826" static="0" type="text"></variable>
+        <variable constant="0" name="selectedCity" sid="1964187646836039" static="0" type="text"></variable>
+        <variable constant="0" name="selectedPostal" sid="8257175787502788" static="0" type="text"></variable>
+        <variable constant="0" name="selectedStatus" sid="2529627262120061" static="0" type="text"></variable>
+        <include>Actions</include>
+        <variable constant="0" name="theFunctionFix2" sid="3799844152929221" static="0" type="text"></variable>
+        <variable constant="0" name="theNewData2" sid="900149889218985" static="0" type="text"></variable>
+        <variable constant="0" name="theGeneratedKey2" sid="9117804639770723" static="0" type="text"></variable>
+        <variable constant="0" name="theProjectId2" sid="6590636890672608" static="0" type="text"></variable>
+        <event-block sid="3177326826077628">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="652926125929118" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="6153307089276632" type="menuTitle">
+                    <param id="0" name="Text">&quot;Project: ...&quot; &amp; theProjectId</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="375762086299161" type="System">
+                    <param id="0" name="Layer">&quot;modalAddProperty&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7734752838075785" type="System">
+                    <param id="0" name="Variable">spacerObject</param>
+                    <param id="1" name="Value">50</param>
+                </action>
+                <action id="0" name="Request URL" sid="5714908334587737" type="AJAX">
+                    <param id="0" name="Tag">&quot;properties&quot;</param>
+                    <param id="1" name="URL">&quot;http://localhost:3000/api/project/properties/&quot;&amp; theProjectId</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1986273573204333">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1775464073370407" type="System">
+                            <param id="0" name="Variable">CONNECTION</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;online&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="4928614835362218" type="textNoSignal">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2195023126518711">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2568163107569226" type="System">
+                            <param id="0" name="Variable">CONNECTION</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;online&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="8429544743196451" type="textNoSignal">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5124855471364961">
+            <conditions>
+                <condition id="0" name="On completed" sid="8476012479088207" type="AJAX">
+                    <param id="0" name="Tag">&quot;properties&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="9" name="Set JSON" sid="6801506532574916" type="JSON">
+                    <param id="0" name="Key string">&quot;properties&quot;</param>
+                    <param id="1" name="JSON">AJAX.LastData</param>
+                </action>
+                <action id="5" name="Load JSON" sid="7961770832701454" type="JSON2">
+                    <param id="0" name="JSON string">JSON.AtKeys(&quot;properties&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="4641873303618961">
+                    <conditions>
+                        <condition id="1" name="For each item" sid="635822817518645" type="JSON2">
+                            <param id="0" name="Key string">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Load JSON" sid="9062185577557921" type="JSON3">
+                            <param id="0" name="JSON string">JSON2.CurValue</param>
+                        </action>
+                        <action id="14" name="Log" sid="8791091009955417" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">JSON3.AsJSON</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="theId" sid="4900483435667492" static="0" type="text"></variable>
+                        <variable constant="0" name="thePolicyNumber" sid="4561641850889724" static="0" type="text"></variable>
+                        <variable constant="0" name="theAddress1" sid="1208228790583883" static="0" type="text"></variable>
+                        <variable constant="0" name="theAddress2" sid="6934081344501575" static="0" type="text"></variable>
+                        <variable constant="0" name="theCity" sid="905569453148249" static="0" type="text"></variable>
+                        <variable constant="0" name="theProvince" sid="4532117856846655" static="0" type="text"></variable>
+                        <variable constant="0" name="thePostal" sid="4165482238328864" static="0" type="text"></variable>
+                        <variable constant="0" name="theStatus" sid="700578567110141" static="0" type="text"></variable>
+                        <variable constant="0" name="theRiskRating" sid="1871563063092959" static="0" type="text"></variable>
+                        <variable constant="0" name="theInspectionRequired" sid="1697075270167841" static="0" type="text"></variable>
+                        <variable constant="0" name="theInspectionNotes" sid="1755987129972233" static="0" type="text"></variable>
+                        <variable constant="0" name="theOverallComments" sid="2572239624630139" static="0" type="text"></variable>
+                        <event-block sid="2767167493931312">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="421224484755511" type="System">
+                                    <param id="0" name="Variable">theId</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;_id&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2231161279332482" type="System">
+                                    <param id="0" name="Variable">theAddress1</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;address1&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4000005480816542" type="System">
+                                    <param id="0" name="Variable">theAddress2</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;theStatus&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5590692932165217" type="System">
+                                    <param id="0" name="Variable">thePolicyNumber</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;policyNumber&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6544126903493981" type="System">
+                                    <param id="0" name="Variable">theCity</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;city&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7857989579526262" type="System">
+                                    <param id="0" name="Variable">theProvince</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;province&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7169295789119073" type="System">
+                                    <param id="0" name="Variable">thePostal</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;postal&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="3567955770089303" type="System">
+                                    <param id="0" name="Variable">theStatus</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;status&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5039915881180742" type="System">
+                                    <param id="0" name="Variable">theRiskRating</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;riskRating&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8572163457358073" type="System">
+                                    <param id="0" name="Variable">theInspectionRequired</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;inspectionRequired&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8987210736788197" type="System">
+                                    <param id="0" name="Variable">theInspectionNotes</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;inspectionNotes&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2560162857904716" type="System">
+                                    <param id="0" name="Variable">theOverallComments</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;overallCommentsNotes&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9721938361203767">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="8500943403824992" type="System">
+                                            <param id="0" name="Object to create">projectsButton</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3797375603802845" type="projectsButton">
+                                            <param id="0" name="Instance variable">goto</param>
+                                            <param id="1" name="Value">&quot;Project&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="5526913960474673" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedId</param>
+                                            <param id="1" name="Value">theId</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8580528827301101" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedPolicyNumber</param>
+                                            <param id="1" name="Value">thePolicyNumber</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="1867667258697055" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedAddress1</param>
+                                            <param id="1" name="Value">theAddress1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8369639343719594" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedAddress2</param>
+                                            <param id="1" name="Value">theAddress2</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8485611051759488" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedCity</param>
+                                            <param id="1" name="Value">theCity</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2679486450510631" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedPostal</param>
+                                            <param id="1" name="Value">thePostal</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="1497497567469551" type="projectsButton">
+                                            <param id="0" name="Instance variable">theSelectedStatus</param>
+                                            <param id="1" name="Value">theStatus</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5767179445713495">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="609133291852969" type="System">
+                                            <param id="0" name="Object to create">projectButtonStatusComplete</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2761973175925765" type="projectButtonStatusComplete">
+                                            <param id="0" name="Instance variable">thisProjectId</param>
+                                            <param id="1" name="Value">theId</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="4825862893530848" type="projectButtonStatusComplete" />
+                                        <action id="-15" name="Set visible" sid="6110781196568034" type="projectButtonStatusComplete">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="3045314042952063">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="9627093590969082" type="System">
+                                                    <param id="0" name="Variable">theStatus</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Complete&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="1550854853597813" type="projectButtonStatusComplete">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="4218634017348637">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="5092742421540943" type="System">
+                                            <param id="0" name="Object to create">projectButtonStatusRevisit</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="1314003322418741" type="projectButtonStatusRevisit">
+                                            <param id="0" name="Instance variable">thisProjectId</param>
+                                            <param id="1" name="Value">theId</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="1545020476078813" type="projectButtonStatusRevisit" />
+                                        <action id="-15" name="Set visible" sid="2461984818643416" type="projectButtonStatusRevisit">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="646238176468625">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="8040163996158736" type="System">
+                                                    <param id="0" name="Variable">theStatus</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Revisit&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="8818895374861882" type="projectButtonStatusRevisit">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="3338717985806858">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="3791351340217322" type="System">
+                                            <param id="0" name="Object to create">projectsTitle</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="7371987106888889" type="projectsTitle">
+                                            <param id="0" name="Text">theAddress1</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="3320863570889617" type="System">
+                                            <param id="0" name="Object to create">projectsTitleStatus</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="8957394107094795" type="projectsTitleStatus">
+                                            <param id="0" name="Text">theCity&amp; &quot;, &quot; &amp; thePostal</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9972043060969453">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="9292118168583585" type="System">
+                                            <param id="0" name="Object to create">iconFolder2</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 60</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7429009776142032">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="3426090378770164" type="System">
+                                            <param id="0" name="Object to create">projcetsInfo</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 592</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9071858528314396">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="7077477625942085" type="System">
+                                            <param id="0" name="Object to create">projectsStatus</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 30</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="6759117610531762" type="projectsStatus">
+                                            <param id="0" name="Text">&quot;Policy Number: &quot; &amp; thePolicyNumber</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="3918500495780915" type="projectsStatus">
+                                            <param id="0" name="Width">1280</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="671072954488351" type="System">
+                                            <param id="0" name="Object to create">projectsProperties</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="7011788485938509" type="projectsProperties">
+                                            <param id="0" name="Text">&quot;Risk Rating: &quot; &amp; theRiskRating</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="8689402770669893" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesNew</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 90</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="6044225300903133" type="projectsPropertiesNew">
+                                            <param id="0" name="Text">&quot;Inspection Required: &quot; &amp; theInspectionRequired</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="3417276055051282" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesRevisit</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 120</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="7405903223287123" type="projectsPropertiesRevisit">
+                                            <param id="0" name="Text">&quot;Inspection Notes: &quot; &amp;theInspectionNotes</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="2045128968798837" type="projectsPropertiesRevisit">
+                                            <param id="0" name="Width">1280</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="6739897984701824" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesComplete</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 150</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="7772381434355132" type="projectsPropertiesComplete">
+                                            <param id="0" name="Text">&quot;Overall Notes: &quot; &amp; theOverallComments</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="8924801448782857" type="projectsPropertiesComplete">
+                                            <param id="0" name="Width">1280</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="768723100180557">
+                                    <conditions />
+                                    <actions>
+                                        <action id="14" name="Log" sid="5905598203887881" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">JSONBuider.AsJSON</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="1349842493882809" type="System">
+                                            <param id="0" name="Variable">spacerObject</param>
+                                            <param id="1" name="Value">spacerObjectIncrement</param>
+                                        </action>
+                                        <action id="-42" name="Signal" sid="313306106661158" type="System">
+                                            <param id="0" name="Tag">&quot;NEXT&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6537635457078213">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="2767180881413549" type="System">
+                            <param id="0" name="First value">len(AJAX.LastData)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5693424451931343">
+            <conditions>
+                <condition id="17" name="On tap object" sid="8118608504534619" type="Touch">
+                    <param id="0" name="Object">projectsButton</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6609534331540566">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7289870291563328" type="ActionButton">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="7221302012051626" type="System">
+                            <param id="0" name="Layer">&quot;modalAddProperty&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5896893362492607" type="System">
+                            <param id="0" name="Variable">selectedProjectId</param>
+                            <param id="1" name="Value">projectsButton.theSelectedId</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2868488039944126" type="System">
+                            <param id="0" name="Variable">selectedPolicyNumber</param>
+                            <param id="1" name="Value">projectsButton.theSelectedPolicyNumber</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6195882769645713" type="System">
+                            <param id="0" name="Variable">selectedStatus</param>
+                            <param id="1" name="Value">projectsButton.theSelectedStatus</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2944044064666014" type="System">
+                            <param id="0" name="Variable">selectedAddress1</param>
+                            <param id="1" name="Value">projectsButton.theSelectedAddress1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7799311751530005" type="System">
+                            <param id="0" name="Variable">selectedAddress2</param>
+                            <param id="1" name="Value">projectsButton.theSelectedAddress2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2953474982948891" type="System">
+                            <param id="0" name="Variable">selectedCity</param>
+                            <param id="1" name="Value">projectsButton.theSelectedCity</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6470622285416153" type="System">
+                            <param id="0" name="Variable">selectedPostal</param>
+                            <param id="1" name="Value">projectsButton.theSelectedPostal</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4536349745011836" type="textSubmitId">
+                            <param id="0" name="Text">&quot;DBID: &quot; &amp;selectedProjectId</param>
+                        </action>
+                        <action id="0" name="Set text" sid="671407207013064" type="textSubmitPolicyNumber">
+                            <param id="0" name="Text">&quot;Policy Number: &quot; &amp; selectedPolicyNumber</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3948397738903006" type="textSubmitAddress1">
+                            <param id="0" name="Text">&quot;Address 1: &quot; &amp; selectedAddress1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2128289415746771" type="textSubmitAddress2">
+                            <param id="0" name="Text">&quot;Address 2:&quot; </param>
+                        </action>
+                        <action id="0" name="Set text" sid="8790127735243557" type="textSubmitCIty">
+                            <param id="0" name="Text">&quot;City: &quot; &amp; selectedCity</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6008278252152567" type="textSubmitPostal">
+                            <param id="0" name="Text">&quot;Postal: &quot; &amp; selectedPostal</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1379894124188405" type="textSubmitStatus">
+                            <param id="0" name="Text">&quot;Status: &quot; &amp; selectedStatus</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8868048909801283">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1872188462704096" type="System">
+                                    <param id="0" name="Variable">selectedAddress2</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">&quot;0&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="2867561955063285" type="textSubmitAddress2">
+                                    <param id="0" name="Text">&quot;Address 2:&quot; &amp; selectedAddress2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7544029145541664">
+            <conditions>
+                <condition id="17" name="On tap object" sid="3203449909836141" type="Touch">
+                    <param id="0" name="Object">ActionButton</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9573700750293528">
+                    <conditions>
+                        <condition id="-9" name="Layer is visible" sid="7383455105770638" type="System">
+                            <param id="0" name="Layer">&quot;modalAddProperty&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="6929640897959518" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

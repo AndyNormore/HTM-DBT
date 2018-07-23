@@ -4,11 +4,11 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>1846.29</position-x>
-        <position-y>961.453</position-y>
-        <position-z>112.623</position-z>
-        <lookat-x>1846.29</lookat-x>
-        <lookat-y>961.453</lookat-y>
+        <position-x>1852.39</position-x>
+        <position-y>1250.7</position-y>
+        <position-z>164.891</position-z>
+        <lookat-x>1852.39</lookat-x>
+        <lookat-y>1250.7</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
@@ -23,12 +23,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="modal" />
+    <active-layer name="modalAddProperty" />
     <layers>
-        <layer locked="0" name="guide" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="main" parallax-in-editor="0" visible="1" />
-        <layer locked="1" name="MENU" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="guide" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="main" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="MENU" parallax-in-editor="0" visible="1" />
         <layer locked="1" name="actions" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="modal" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="modalAddProperty" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="scaffold" parallax-in-editor="0" visible="1" />
     </layers>
 </c2uistate>

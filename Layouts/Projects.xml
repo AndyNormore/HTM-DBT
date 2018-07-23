@@ -411,12 +411,19 @@
                         <goto>&quot;Project&quot;</goto>
                         <action></action>
                         <data1></data1>
+                        <theSelectedId></theSelectedId>
+                        <theSelectedPolicyNumber></theSelectedPolicyNumber>
+                        <theSelectedAddress1></theSelectedAddress1>
+                        <theSelectedAddress2></theSelectedAddress2>
+                        <theSelectedCity></theSelectedCity>
+                        <theSelectedPostal></theSelectedPostal>
+                        <theSelectedStatus></theSelectedStatus>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>960</x>
-                        <y>640</y>
+                        <x>992</x>
+                        <y>272</y>
                         <z>0</z>
                         <width>592</width>
                         <height>224</height>
@@ -440,8 +447,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>960</x>
-                        <y>848</y>
+                        <x>992</x>
+                        <y>480</y>
                         <z>0</z>
                         <width>592</width>
                         <height>16</height>
@@ -467,8 +474,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1072</x>
-                        <y>672</y>
+                        <x>1104</x>
+                        <y>304</y>
                         <z>0</z>
                         <width>464</width>
                         <height>64</height>
@@ -489,8 +496,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1024</x>
-                        <y>704</y>
+                        <x>1056</x>
+                        <y>336</y>
                         <z>0</z>
                         <width>64</width>
                         <height>48</height>
@@ -514,8 +521,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1552</x>
-                        <y>640</y>
+                        <x>1584</x>
+                        <y>272</y>
                         <z>0</z>
                         <width>1248</width>
                         <height>224</height>
@@ -530,7 +537,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-21,400,0</font>
+                        <font>Arial,-27,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -541,11 +548,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1568</x>
-                        <y>656</y>
+                        <x>1600</x>
+                        <y>288</y>
                         <z>0</z>
                         <width>464</width>
-                        <height>30</height>
+                        <height>48</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -557,7 +564,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-21,400,0</font>
+                        <font>Arial,-27,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -568,11 +575,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1568</x>
-                        <y>688</y>
+                        <x>1600</x>
+                        <y>320</y>
                         <z>0</z>
                         <width>464</width>
-                        <height>30</height>
+                        <height>48</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -584,7 +591,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-21,400,0</font>
+                        <font>Arial,-27,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -595,11 +602,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1568</x>
-                        <y>752</y>
+                        <x>1600</x>
+                        <y>384</y>
                         <z>0</z>
                         <width>464</width>
-                        <height>30</height>
+                        <height>48</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -611,7 +618,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-21,400,0</font>
+                        <font>Arial,-27,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -622,11 +629,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1568</x>
-                        <y>784</y>
+                        <x>1600</x>
+                        <y>416</y>
                         <z>0</z>
                         <width>464</width>
-                        <height>30</height>
+                        <height>48</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -638,7 +645,7 @@
                     <properties>
                         <text>Text</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-21,400,0</font>
+                        <font>Arial,-27,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -649,11 +656,61 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1568</x>
-                        <y>816</y>
+                        <x>1600</x>
+                        <y>448</y>
                         <z>0</z>
                         <width>464</width>
-                        <height>30</height>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="projectsTitleStatus" uid="113">
+                    <properties>
+                        <text>Text</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-32,400,0</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1104</x>
+                        <y>352</y>
+                        <z>0</z>
+                        <width>464</width>
+                        <height>64</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="projectAction" uid="114">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <instance-variables>
+                        <thisProjectId>UNSET</thisProjectId>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>992</x>
+                        <y>272</y>
+                        <z>0</z>
+                        <width>592</width>
+                        <height>224</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -666,12 +723,17 @@
         </layer>
     </layers>
     <nonworld-instances>
-        <instance type="DATABASE" uid="57">
+        <instance type="dbProjects" uid="57">
             <properties>
                 <sub-domain>data</sub-domain>
             </properties>
         </instance>
         <instance type="Date" uid="58" />
+        <instance type="dbProject" uid="115">
+            <properties>
+                <sub-domain>data</sub-domain>
+            </properties>
+        </instance>
     </nonworld-instances>
     <effects />
 </c2layout>

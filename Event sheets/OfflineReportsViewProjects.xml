@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>OfflineReportsViewProjects</name>
+    <events>
+        <include>Actions</include>
+        <event-block sid="5398629804788947">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5756530444587481" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Request URL" sid="1457127267583874" type="AJAX">
+                    <param id="0" name="Tag">&quot;projects&quot;</param>
+                    <param id="1" name="URL">&quot;https://htm.masterdigitalservices.com/api/projects/list&quot;</param>
+                </action>
+                <action id="0" name="Request URL" sid="9575195352462878" type="AJAX">
+                    <param id="0" name="Tag">&quot;projects&quot;</param>
+                    <param id="1" name="URL">&quot;http://localhost:3000/api/projects/list&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="5865212176733561" type="System">
+                    <param id="0" name="Variable">spacerObject</param>
+                    <param id="1" name="Value">50</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5838799339173751">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="68723513260192" type="System">
+                            <param id="0" name="Variable">CONNECTION</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;online&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="8504952238077209" type="textNoSignal">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8641344762707642">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4369277066157125" type="System">
+                            <param id="0" name="Variable">CONNECTION</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;online&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="1393201313758393" type="textNoSignal">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9962568190676704">
+            <conditions>
+                <condition id="0" name="On completed" sid="5923067827207568" type="AJAX">
+                    <param id="0" name="Tag">&quot;projects&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="9" name="Set JSON" sid="2695343486272454" type="JSON">
+                    <param id="0" name="Key string">&quot;projects&quot;</param>
+                    <param id="1" name="JSON">AJAX.LastData</param>
+                </action>
+                <action id="5" name="Load JSON" sid="3975702745868928" type="JSON2">
+                    <param id="0" name="JSON string">JSON.AtKeys(&quot;projects&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8387200531591811">
+                    <conditions>
+                        <condition id="1" name="For each item" sid="5476493626772838" type="JSON2">
+                            <param id="0" name="Key string">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Load JSON" sid="7796262464356163" type="JSON3">
+                            <param id="0" name="JSON string">JSON2.CurValue</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <variable constant="0" name="theId" sid="1398651277740171" static="0" type="text"></variable>
+                        <variable constant="0" name="theTitle" sid="5276352900365877" static="0" type="text"></variable>
+                        <variable constant="0" name="theStatus" sid="4337877587376792" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusPercent" sid="4110253019196832" static="0" type="text"></variable>
+                        <variable constant="0" name="properties" sid="5259639227103799" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusNew" sid="3616769526812259" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusRevisit" sid="7416943687845288" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusComplete" sid="35413868223279" static="0" type="text"></variable>
+                        <variable constant="0" name="notes" sid="5519525459699487" static="0" type="text"></variable>
+                        <event-block sid="4918371388294079">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="8484045672787576" type="System">
+                                    <param id="0" name="Variable">theId</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;_id&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8412783497373966" type="System">
+                                    <param id="0" name="Variable">theTitle</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;title&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9545142496660762" type="System">
+                                    <param id="0" name="Variable">theStatus</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;theStatus&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6186753578958651" type="System">
+                                    <param id="0" name="Variable">projectStatusPercent</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;projectStatusPercent&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8724389749714189" type="System">
+                                    <param id="0" name="Variable">properties</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;properties&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5664561171629705" type="System">
+                                    <param id="0" name="Variable">projectStatusNew</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;projectStatusNew&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5156962524299312" type="System">
+                                    <param id="0" name="Variable">projectStatusRevisit</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;projectStatusRevisit&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5396817626770205" type="System">
+                                    <param id="0" name="Variable">projectStatusComplete</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;projectStatusComplete&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4005352431831259" type="System">
+                                    <param id="0" name="Variable">notes</param>
+                                    <param id="1" name="Value">JSON3.AtKeys(&quot;notes&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="8702117756169178">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="2384579900129414" type="System">
+                                            <param id="0" name="Object to create">projectsButton</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3609846430301929" type="projectsButton">
+                                            <param id="0" name="Instance variable">goto</param>
+                                            <param id="1" name="Value">&quot;Project&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="9473193458198264" type="projectsButton">
+                                            <param id="0" name="Instance variable">data1</param>
+                                            <param id="1" name="Value">theId</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2340602862431487">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="520200540291207" type="System">
+                                            <param id="0" name="Object to create">projectsTitle</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="8411520896655667" type="projectsTitle">
+                                            <param id="0" name="Text">theTitle</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="746403113946124" type="System">
+                                            <param id="0" name="Object to create">projectsTitleStatus</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="3628155910909387" type="projectsTitleStatus">
+                                            <param id="0" name="Text">projectStatusPercent &amp; &quot;%&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3746265378540339">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="1375344079726373" type="System">
+                                            <param id="0" name="Object to create">iconFolder</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 60</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5350565139395241">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="6857560233743955" type="System">
+                                            <param id="0" name="Object to create">projectsMeter</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 208</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="7915782383900105" type="projectsMeter">
+                                            <param id="0" name="Width">(592/100)*int(projectStatusPercent)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8667839004086602">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="8987991699679055" type="System">
+                                            <param id="0" name="Object to create">projcetsInfo</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 592</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8349353135045117">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="3917825920703042" type="System">
+                                            <param id="0" name="Object to create">projectsStatus</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 30</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="9539015161779055" type="projectsStatus">
+                                            <param id="0" name="Text">theStatus</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="2487049126896253" type="System">
+                                            <param id="0" name="Object to create">projectsProperties</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="6114388630984597" type="projectsProperties">
+                                            <param id="0" name="Text">properties &amp; &quot; Properties&quot;</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="1190099215080625" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesNew</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 90</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="56281270809613" type="projectsPropertiesNew">
+                                            <param id="0" name="Text">projectStatusNew &amp; &quot; New&quot;</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="3163424397534508" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesRevisit</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 120</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="6704269026304529" type="projectsPropertiesRevisit">
+                                            <param id="0" name="Text">projectStatusRevisit &amp; &quot; Revisit&quot;</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="7584575080066732" type="System">
+                                            <param id="0" name="Object to create">projectsPropertiesComplete</param>
+                                            <param id="1" name="Layer">&quot;main&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 150</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="8433187636717743" type="projectsPropertiesComplete">
+                                            <param id="0" name="Text">projectStatusComplete &amp; &quot; Complete&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3345782735126409">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="7256032681682954" type="System">
+                                            <param id="0" name="Object to create">projectAction</param>
+                                            <param id="1" name="Layer">&quot;actions&quot;</param>
+                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="2576364349228009" type="projectAction">
+                                            <param id="0" name="Instance variable">thisProjectId</param>
+                                            <param id="1" name="Value">theId</param>
+                                        </action>
+                                        <action id="-24" name="Move to top" sid="9458461688611465" type="projectAction" />
+                                        <action id="-15" name="Set visible" sid="794646878772287" type="projectAction">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9018314440517966">
+                                    <conditions />
+                                    <actions>
+                                        <action id="14" name="Log" sid="486101437595158" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">JSONBuider.AsJSON</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="6772326796295134" type="System">
+                                            <param id="0" name="Variable">spacerObject</param>
+                                            <param id="1" name="Value">spacerObjectIncrement</param>
+                                        </action>
+                                        <action id="-42" name="Signal" sid="4551204599773222" type="System">
+                                            <param id="0" name="Tag">&quot;NEXT&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5153966646916982">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="9933202864879461" type="System">
+                            <param id="0" name="First value">len(AJAX.LastData)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7478509870455984">
+            <conditions>
+                <condition id="17" name="On tap object" sid="7911404273538304" type="Touch">
+                    <param id="0" name="Object">projectAction</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4148699091231424" type="System">
+                    <param id="0" name="Variable">theProjectId</param>
+                    <param id="1" name="Value">projectAction.thisProjectId</param>
+                </action>
+                <action id="-9" name="Set value" sid="598451154735371" type="System">
+                    <param id="0" name="Variable">setGoto</param>
+                    <param id="1" name="Value">&quot;OfflineReportsViewProject&quot;</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="3869550996505804" type="camera">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

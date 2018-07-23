@@ -27,11 +27,11 @@
                     <param id="0" name="Text">&quot;Projects&quot;</param>
                 </action>
                 <action id="1" name="Start" sid="8825901101063393" type="ItemMonitor" />
-                <action id="52" name="Get items by comparison" sid="7188666164498197" type="DATABASE">
+                <action id="52" name="Get items by comparison" sid="7188666164498197" type="dbProjects">
                     <param id="0" name="Table">&quot;projects&quot;</param>
                     <param id="1" name="Key">&quot;status&quot;</param>
                     <param id="2" name="Comparison">0</param>
-                    <param id="3" name="Value">&quot;new&quot;</param>
+                    <param id="3" name="Value">&quot;active&quot;</param>
                     <param id="4" name="Limit">0</param>
                     <param id="5" name="Count">-1</param>
                     <param id="6" name="Tag">&quot;_&quot;</param>
@@ -43,7 +43,7 @@
         </event-block>
         <event-block sid="1816670150062457">
             <conditions>
-                <condition id="11" name="On update complete" sid="8405259890800651" type="DATABASE" />
+                <condition id="11" name="On update complete" sid="8405259890800651" type="dbProjects" />
             </conditions>
             <actions>
                 <action id="14" name="Log" sid="6115669228707033" type="Browser">
@@ -57,7 +57,7 @@
         </event-block>
         <event-block sid="6135220149738079">
             <conditions>
-                <condition id="12" name="On update error" sid="4210988157131688" type="DATABASE" />
+                <condition id="12" name="On update error" sid="4210988157131688" type="dbProjects" />
             </conditions>
             <actions>
                 <action id="14" name="Log" sid="6293329499937979" type="Browser">
@@ -68,7 +68,7 @@
         </event-block>
         <event-block sid="5871573135574053">
             <conditions>
-                <condition id="51" name="On request complete" sid="5597306070009998" type="DATABASE">
+                <condition id="51" name="On request complete" sid="5597306070009998" type="dbProjects">
                     <param id="0" name="Tag">&quot;_&quot;</param>
                 </condition>
             </conditions>
@@ -79,307 +79,325 @@
                 </action>
             </actions>
             <sub-events>
-                <event-block sid="6346629707139644">
+                <event-block sid="7463375415038427">
                     <conditions>
-                        <condition id="2" name="Set root" sid="413041132317249" type="JSONBuider">
-                            <param id="0" name="Type">1</param>
+                        <condition id="52" name="For each itemID" sid="5768574041546039" type="dbProjects">
+                            <param id="0" name="Table">dbProjects.LastTableID</param>
+                            <param id="1" name="Order">3</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="7463375415038427">
+                        <variable constant="0" name="theTitle" sid="9173283313447783" static="0" type="text"></variable>
+                        <variable constant="0" name="theStatus" sid="2784120244456326" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusPercent" sid="3203297074263228" static="0" type="text"></variable>
+                        <variable constant="0" name="properties" sid="9883547932314217" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusNew" sid="2157863908438096" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusRevisit" sid="8513351857255606" static="0" type="text"></variable>
+                        <variable constant="0" name="projectStatusComplete" sid="8329863794490345" static="0" type="text"></variable>
+                        <variable constant="0" name="notes" sid="3668576636064211" static="0" type="text"></variable>
+                        <event-block sid="7106599191789733">
                             <conditions>
-                                <condition id="52" name="For each itemID" sid="5768574041546039" type="DATABASE">
-                                    <param id="0" name="Table">DATABASE.LastTableID</param>
-                                    <param id="1" name="Order">3</param>
+                                <condition id="53" name="For each key" sid="7156514008898949" type="dbProjects">
+                                    <param id="0" name="Table">dbProjects.LastTableID</param>
+                                    <param id="1" name="Item">dbProjects.CurItemID</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="14" name="Log" sid="156005250565025" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">dbProjects.CurItemID &amp; &quot;: [&quot; &amp; dbProjects.CurKey &amp; &quot;]= &quot;&amp; dbProjects.CurValue</param>
+                                </action>
+                            </actions>
                             <sub-events>
-                                <variable constant="0" name="theTitle" sid="9173283313447783" static="0" type="text"></variable>
-                                <variable constant="0" name="theStatus" sid="2784120244456326" static="0" type="text"></variable>
-                                <variable constant="0" name="projectStatusPercent" sid="3203297074263228" static="0" type="text"></variable>
-                                <variable constant="0" name="properties" sid="9883547932314217" static="0" type="text"></variable>
-                                <variable constant="0" name="projectStatusNew" sid="2157863908438096" static="0" type="text"></variable>
-                                <variable constant="0" name="projectStatusRevisit" sid="8513351857255606" static="0" type="text"></variable>
-                                <variable constant="0" name="projectStatusComplete" sid="8329863794490345" static="0" type="text"></variable>
-                                <variable constant="0" name="notes" sid="3668576636064211" static="0" type="text"></variable>
-                                <event-block sid="7106599191789733">
+                                <event-block sid="5350559088680925">
                                     <conditions>
-                                        <condition id="53" name="For each key" sid="7156514008898949" type="DATABASE">
-                                            <param id="0" name="Table">DATABASE.LastTableID</param>
-                                            <param id="1" name="Item">DATABASE.CurItemID</param>
+                                        <condition id="-8" name="Compare two values" sid="2864695730562489" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;title&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="14" name="Log" sid="156005250565025" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">DATABASE.CurItemID &amp; &quot;: [&quot; &amp; DATABASE.CurKey &amp; &quot;]= &quot;&amp; DATABASE.CurValue</param>
+                                        <action id="-9" name="Set value" sid="5771079205832791" type="System">
+                                            <param id="0" name="Variable">theTitle</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
-                                    <sub-events>
-                                        <event-block sid="5350559088680925">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="2864695730562489" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;title&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="5771079205832791" type="System">
-                                                    <param id="0" name="Variable">theTitle</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="7566858781706021">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="4361072183054359" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;status&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="4595112098226186" type="System">
-                                                    <param id="0" name="Variable">theStatus</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="15101409701181">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="3367947461512066" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;projectStatusPercent&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="3521647621727539" type="System">
-                                                    <param id="0" name="Variable">projectStatusPercent</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="3726021214074661">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="2302452395426629" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;properties&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="137082605161629" type="System">
-                                                    <param id="0" name="Variable">properties</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="6501960794715507">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="5428014989764732" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;projectStatusNew&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="6605370087902598" type="System">
-                                                    <param id="0" name="Variable">projectStatusNew</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="1072039961910206">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="923745435956895" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;projectStatusRevisit&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="4425985450997005" type="System">
-                                                    <param id="0" name="Variable">projectStatusRevisit</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="9300475896827871">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="1136323173390762" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;projectStatusComplete&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="1110575122593499" type="System">
-                                                    <param id="0" name="Variable">projectStatusComplete</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="5149708291305993">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="7749336133731926" type="System">
-                                                    <param id="0" name="First value">DATABASE.CurKey</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;thePropertiesNotes&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Set value" sid="743373766903392" type="System">
-                                                    <param id="0" name="Variable">notes</param>
-                                                    <param id="1" name="Value">DATABASE.CurValue</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
                                 </event-block>
-                                <event-block sid="2544556255843055">
-                                    <conditions />
+                                <event-block sid="7566858781706021">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="4361072183054359" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;status&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="8492799775665866" type="System">
-                                            <param id="0" name="Object to create">projectsButton</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="1984417345045685" type="projectsButton">
-                                            <param id="0" name="Instance variable">goto</param>
-                                            <param id="1" name="Value">&quot;Project&quot;</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="3623663230217933" type="projectsButton">
-                                            <param id="0" name="Instance variable">data1</param>
-                                            <param id="1" name="Value">DATABASE.CurItemID</param>
+                                        <action id="-9" name="Set value" sid="4595112098226186" type="System">
+                                            <param id="0" name="Variable">theStatus</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="9814631965545779">
-                                    <conditions />
+                                <event-block sid="15101409701181">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="3367947461512066" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;projectStatusPercent&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="2288634111694004" type="System">
-                                            <param id="0" name="Object to create">projectsTitle</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="7381383403048854" type="projectsTitle">
-                                            <param id="0" name="Text">theTitle &amp;&quot; : &quot; &amp; projectStatusPercent &amp; &quot;%&quot;</param>
+                                        <action id="-9" name="Set value" sid="3521647621727539" type="System">
+                                            <param id="0" name="Variable">projectStatusPercent</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="8479183163915387">
-                                    <conditions />
+                                <event-block sid="3726021214074661">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2302452395426629" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;properties&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="3260001762125402" type="System">
-                                            <param id="0" name="Object to create">iconFolder</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 60</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 80</param>
+                                        <action id="-9" name="Set value" sid="137082605161629" type="System">
+                                            <param id="0" name="Variable">properties</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="8244537442376151">
-                                    <conditions />
+                                <event-block sid="6501960794715507">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="5428014989764732" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;projectStatusNew&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="2312319036463015" type="System">
-                                            <param id="0" name="Object to create">projectsMeter</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 208</param>
-                                        </action>
-                                        <action id="-5" name="Set width" sid="8092098961736736" type="projectsMeter">
-                                            <param id="0" name="Width">(592/100)*int(projectStatusPercent)</param>
+                                        <action id="-9" name="Set value" sid="6605370087902598" type="System">
+                                            <param id="0" name="Variable">projectStatusNew</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="1968597977448793">
-                                    <conditions />
+                                <event-block sid="1072039961910206">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="923745435956895" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;projectStatusRevisit&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="9210013687812489" type="System">
-                                            <param id="0" name="Object to create">projcetsInfo</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 592</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                        <action id="-9" name="Set value" sid="4425985450997005" type="System">
+                                            <param id="0" name="Variable">projectStatusRevisit</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="3474478602578655">
-                                    <conditions />
+                                <event-block sid="9300475896827871">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="1136323173390762" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;projectStatusComplete&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="4867420025943841" type="System">
-                                            <param id="0" name="Object to create">projectsProperties</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 30</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="2223442080829032" type="projectsProperties">
-                                            <param id="0" name="Text">properties &amp; &quot; Properties&quot;</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="6070755212450025" type="System">
-                                            <param id="0" name="Object to create">projectsStatus</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="2768933086082644" type="projectsStatus">
-                                            <param id="0" name="Text">&quot;Status: &quot; &amp; theStatus</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="6392825320582285" type="System">
-                                            <param id="0" name="Object to create">projectsPropertiesNew</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 90</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="1270105422774049" type="projectsPropertiesNew">
-                                            <param id="0" name="Text">projectStatusNew &amp; &quot; Complete&quot;</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="2289638655808758" type="System">
-                                            <param id="0" name="Object to create">projectsPropertiesRevisit</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 120</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="6103943386056565" type="projectsPropertiesRevisit">
-                                            <param id="0" name="Text">projectStatusRevisit &amp; &quot; Revisit&quot;</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="9800892665645111" type="System">
-                                            <param id="0" name="Object to create">projectsPropertiesComplete</param>
-                                            <param id="1" name="Layer">&quot;main&quot;</param>
-                                            <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
-                                            <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 150</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="5820045345597827" type="projectsPropertiesComplete">
-                                            <param id="0" name="Text">projectStatusComplete &amp; &quot; Complete&quot;</param>
+                                        <action id="-9" name="Set value" sid="1110575122593499" type="System">
+                                            <param id="0" name="Variable">projectStatusComplete</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="2193706140273094">
-                                    <conditions />
+                                <event-block sid="5149708291305993">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="7749336133731926" type="System">
+                                            <param id="0" name="First value">dbProjects.CurKey</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;thePropertiesNotes&quot;</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="14" name="Log" sid="113160296923081" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">JSONBuider.AsJSON</param>
-                                        </action>
-                                        <action id="-10" name="Add to" sid="6467627648572822" type="System">
-                                            <param id="0" name="Variable">spacerObject</param>
-                                            <param id="1" name="Value">spacerObjectIncrement</param>
-                                        </action>
-                                        <action id="-42" name="Signal" sid="2276668734828599" type="System">
-                                            <param id="0" name="Tag">&quot;NEXT&quot;</param>
+                                        <action id="-9" name="Set value" sid="743373766903392" type="System">
+                                            <param id="0" name="Variable">notes</param>
+                                            <param id="1" name="Value">dbProjects.CurValue</param>
                                         </action>
                                     </actions>
-                                </event-block>
-                                <event-block sid="8491246493509535">
-                                    <conditions />
-                                    <actions />
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                        <event-block sid="2544556255843055">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="8492799775665866" type="System">
+                                    <param id="0" name="Object to create">projectsButton</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1984417345045685" type="projectsButton">
+                                    <param id="0" name="Instance variable">goto</param>
+                                    <param id="1" name="Value">&quot;Project&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="3623663230217933" type="projectsButton">
+                                    <param id="0" name="Instance variable">data1</param>
+                                    <param id="1" name="Value">dbProjects.CurItemID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9814631965545779">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="2288634111694004" type="System">
+                                    <param id="0" name="Object to create">projectsTitle</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                </action>
+                                <action id="0" name="Set text" sid="7381383403048854" type="projectsTitle">
+                                    <param id="0" name="Text">theTitle</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="1202402730063513" type="System">
+                                    <param id="0" name="Object to create">projectsTitleStatus</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 120</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                </action>
+                                <action id="0" name="Set text" sid="6387143385422663" type="projectsTitleStatus">
+                                    <param id="0" name="Text">projectStatusPercent &amp; &quot;%&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8479183163915387">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="3260001762125402" type="System">
+                                    <param id="0" name="Object to create">iconFolder</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 60</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8244537442376151">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="2312319036463015" type="System">
+                                    <param id="0" name="Object to create">projectsMeter</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 208</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="8092098961736736" type="projectsMeter">
+                                    <param id="0" name="Width">(592/100)*int(projectStatusPercent)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1968597977448793">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="9210013687812489" type="System">
+                                    <param id="0" name="Object to create">projcetsInfo</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 592</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3474478602578655">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="6070755212450025" type="System">
+                                    <param id="0" name="Object to create">projectsStatus</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 30</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2768933086082644" type="projectsStatus">
+                                    <param id="0" name="Text">theStatus</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="4867420025943841" type="System">
+                                    <param id="0" name="Object to create">projectsProperties</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 60</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2223442080829032" type="projectsProperties">
+                                    <param id="0" name="Text">properties &amp; &quot; Properties&quot;</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="6392825320582285" type="System">
+                                    <param id="0" name="Object to create">projectsPropertiesNew</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 90</param>
+                                </action>
+                                <action id="0" name="Set text" sid="1270105422774049" type="projectsPropertiesNew">
+                                    <param id="0" name="Text">projectStatusNew &amp; &quot; New&quot;</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="2289638655808758" type="System">
+                                    <param id="0" name="Object to create">projectsPropertiesRevisit</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 120</param>
+                                </action>
+                                <action id="0" name="Set text" sid="6103943386056565" type="projectsPropertiesRevisit">
+                                    <param id="0" name="Text">projectStatusRevisit &amp; &quot; Revisit&quot;</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="9800892665645111" type="System">
+                                    <param id="0" name="Object to create">projectsPropertiesComplete</param>
+                                    <param id="1" name="Layer">&quot;main&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X + 610</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject + 150</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5820045345597827" type="projectsPropertiesComplete">
+                                    <param id="0" name="Text">projectStatusComplete &amp; &quot; Complete&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3419281868678607">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="9474145915862928" type="System">
+                                    <param id="0" name="Object to create">projectAction</param>
+                                    <param id="1" name="Layer">&quot;actions&quot;</param>
+                                    <param id="2" name="X">viewportNewObjectMarker.X</param>
+                                    <param id="3" name="Y">viewportNewObjectMarker.y + spacerObject</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1682437412776456" type="projectAction">
+                                    <param id="0" name="Instance variable">thisProjectId</param>
+                                    <param id="1" name="Value">dbProjects.CurItemID</param>
+                                </action>
+                                <action id="-24" name="Move to top" sid="2996161044348072" type="projectAction" />
+                                <action id="-15" name="Set visible" sid="2394419057684556" type="projectAction">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2193706140273094">
+                            <conditions />
+                            <actions>
+                                <action id="14" name="Log" sid="113160296923081" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">JSONBuider.AsJSON</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="6467627648572822" type="System">
+                                    <param id="0" name="Variable">spacerObject</param>
+                                    <param id="1" name="Value">spacerObjectIncrement</param>
+                                </action>
+                                <action id="-42" name="Signal" sid="2276668734828599" type="System">
+                                    <param id="0" name="Tag">&quot;NEXT&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8491246493509535">
+                            <conditions />
+                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -404,13 +422,13 @@
         <event-block sid="7778079336824287">
             <conditions>
                 <condition id="17" name="On tap object" sid="8257374836218458" type="Touch">
-                    <param id="0" name="Object">projectsButton</param>
+                    <param id="0" name="Object">projectAction</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="-9" name="Set value" sid="7086170453781123" type="System">
                     <param id="0" name="Variable">theProjectId</param>
-                    <param id="1" name="Value">projectsButton.data1</param>
+                    <param id="1" name="Value">projectAction.thisProjectId</param>
                 </action>
                 <action id="-9" name="Set value" sid="7986246821106252" type="System">
                     <param id="0" name="Variable">setGoto</param>
@@ -477,59 +495,59 @@
                     <sub-events>
                         <event-block sid="9222515261329418">
                             <conditions>
-                                <condition id="1" name="Table node" sid="8782555729094838" type="DATABASE">
+                                <condition id="1" name="Table node" sid="8782555729094838" type="dbProjects">
                                     <param id="0" name="Table">&quot;projects&quot;</param>
                                 </condition>
-                                <condition id="2" name="Item node" sid="1999923702876146" type="DATABASE">
-                                    <param id="0" name="ItemID">DATABASE.GenerateKey</param>
+                                <condition id="2" name="Item node" sid="1999923702876146" type="dbProjects">
+                                    <param id="0" name="ItemID">dbProjects.GenerateKey</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="1" name="Set value" sid="3100053765075171" type="DATABASE">
+                                <action id="1" name="Set value" sid="3100053765075171" type="dbProjects">
                                     <param id="0" name="Key">&quot;status&quot;</param>
-                                    <param id="1" name="Value">&quot;new&quot;</param>
+                                    <param id="1" name="Value">&quot;active&quot;</param>
                                 </action>
-                                <action id="1" name="Set value" sid="7006126302199169" type="DATABASE">
+                                <action id="1" name="Set value" sid="7006126302199169" type="dbProjects">
                                     <param id="0" name="Key">&quot;title&quot;</param>
                                     <param id="1" name="Value">inputProjectTitle.Text</param>
                                 </action>
-                                <action id="1" name="Set value" sid="6091433050087879" type="DATABASE">
+                                <action id="1" name="Set value" sid="6091433050087879" type="dbProjects">
                                     <param id="0" name="Key">&quot;timeCreated&quot;</param>
                                     <param id="1" name="Value">Date.UnixTimestamp</param>
                                 </action>
-                                <action id="1" name="Set value" sid="44886473753731" type="DATABASE">
+                                <action id="1" name="Set value" sid="44886473753731" type="dbProjects">
                                     <param id="0" name="Key">&quot;timeUpdated&quot;</param>
                                     <param id="1" name="Value">date.UnixTimestamp</param>
                                 </action>
-                                <action id="1" name="Set value" sid="1922112815363487" type="DATABASE">
+                                <action id="1" name="Set value" sid="1922112815363487" type="dbProjects">
                                     <param id="0" name="Key">&quot;properties&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="6198976003040583" type="DATABASE">
+                                <action id="1" name="Set value" sid="6198976003040583" type="dbProjects">
                                     <param id="0" name="Key">&quot;rating&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="8761853045019694" type="DATABASE">
+                                <action id="1" name="Set value" sid="8761853045019694" type="dbProjects">
                                     <param id="0" name="Key">&quot;projectStatusPercent&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="765162785802448" type="DATABASE">
+                                <action id="1" name="Set value" sid="765162785802448" type="dbProjects">
                                     <param id="0" name="Key">&quot;projectStatusNew&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="8577445304594125" type="DATABASE">
+                                <action id="1" name="Set value" sid="8577445304594125" type="dbProjects">
                                     <param id="0" name="Key">&quot;projectStatusRevisit&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="1431903966988518" type="DATABASE">
+                                <action id="1" name="Set value" sid="1431903966988518" type="dbProjects">
                                     <param id="0" name="Key">&quot;projectStatusComplete&quot;</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
-                                <action id="1" name="Set value" sid="3997374736758604" type="DATABASE">
+                                <action id="1" name="Set value" sid="3997374736758604" type="dbProjects">
                                     <param id="0" name="Key">&quot;notes&quot;</param>
                                     <param id="1" name="Value">&quot;&quot;</param>
                                 </action>
-                                <action id="11" name="Update" sid="6001401334264608" type="DATABASE" />
+                                <action id="11" name="Update" sid="6001401334264608" type="dbProjects" />
                                 <action id="-41" name="Wait for signal" sid="407739831722918" type="System">
                                     <param id="0" name="Tag">&quot;NEXT&quot;</param>
                                 </action>
@@ -544,7 +562,7 @@
                 <condition id="4" name="On any value changed" sid="1434791054441387" type="ItemMonitor" />
             </conditions>
             <actions>
-                <action disabled="1" id="52" name="Get items by comparison" sid="9495592617233089" type="DATABASE">
+                <action disabled="1" id="52" name="Get items by comparison" sid="9495592617233089" type="dbProjects">
                     <param id="0" name="Table">&quot;table0&quot;</param>
                     <param id="1" name="Key">&quot;status&quot;</param>
                     <param id="2" name="Comparison">0</param>

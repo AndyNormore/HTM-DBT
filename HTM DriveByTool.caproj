@@ -1,20 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
     <name>HTM DriveByTool</name>
-    <description></description>
+    <description>Private App</description>
     <version>1.0.0.0</version>
-    <author></author>
-    <author-email></author-email>
-    <author-website>http://</author-website>
-    <app-id>com.mycompany.myapp</app-id>
+    <author>Andrew Normore</author>
+    <author-email>andrewnormore@gmail.com</author-email>
+    <author-website>https://masterdigitalservices.com</author-website>
+    <app-id>com.masterdigitalservices.htm</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>20402</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="PlayLive" id="HTML_iFrame" version="1.419999957">HTML | iFrame</plugin>
+        <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Gregory Georges" id="RadioCheckButton" version="1.139999986">Radio &amp; Checkbox</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_CSV" version="1">CSV</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Comment" version="0.100000001">Comments</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Firebase" version="1">Firebase</plugin>
         <plugin author="Rex.Rainbow" id="Rex_FirebaseAPIV3" version="1">Firebase API v3</plugin>
@@ -30,6 +36,8 @@
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Scirra" id="UserMedia" version="1">User Media</plugin>
+        <plugin author="Scirra" id="filechooser" version="1">File chooser</plugin>
         <plugin author="Rex.Rainbow" id="rex_googlemap" version="0.100000001">Google map</plugin>
         <plugin author="Rex.Rainbow" id="rex_googlemap_api" version="0.100000001">Google map api</plugin>
         <plugin author="Rex.Rainbow" id="rex_googlemap_infowindow" version="0.100000001">Info window</plugin>
@@ -300,6 +308,20 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                    <animation framecount="1" loop="0" name="open" pingpong="0" repeatcount="1" repeatto="0" sid="8737266290694388" speed="5">
+                        <frame duration="1" hotspotX="0.502924" hotspotY="0.5" original-source="C:\C2\icons\folderOpen.png">
+                            <collision-poly>
+                                <point x="0.111111" y="0.126667" />
+                                <point x="0.497076" y="0.246667" />
+                                <point x="0.766082" y="0.266667" />
+                                <point x="0.947368" y="0.5" />
+                                <point x="0.818713" y="0.793333" />
+                                <point x="0.497076" y="0.833333" />
+                                <point x="0.146199" y="0.833333" />
+                                <point x="0.0233918" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="uiGide" sid="4431776224274989">
@@ -412,6 +434,51 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="inputPropertyAddress1" sid="8495149894329876">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="inputPropertyAddress2" sid="8527799655992595">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="inputPropertyCity" sid="1581165928726655">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="inputPropertyProvince" sid="8640917184674638">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="inputPropertyPostal" sid="2316335191525527">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="iconFolder2" sid="9490375117202844">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4725479746568185" speed="5">
+                        <frame duration="1" hotspotX="0.502924" hotspotY="0.502732" original-source="C:\C2\icons\house.png">
+                            <collision-poly>
+                                <point x="0.0347222" y="0.0462963" />
+                                <point x="0.5" y="0.148148" />
+                                <point x="0.868056" y="0.175926" />
+                                <point x="0.993056" y="0.5" />
+                                <point x="0.965278" y="0.953704" />
+                                <point x="0.5" y="0.990741" />
+                                <point x="0.0347222" y="0.953704" />
+                                <point x="0.00694444" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="squareBlue2" sid="1633370579696418">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="843818142627161" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="inputPropertyPostal2" sid="5881382958693294">
+                <plugin id="TextBox" />
+            </object-type>
         </object-folder>
         <object-folder name="Projects">
             <object-type name="projcetsInfo" sid="6561660065173826">
@@ -429,6 +496,13 @@
                     <instance-variable name="goto" sid="4062229056782294" type="string" />
                     <instance-variable name="action" sid="8772458130507568" type="string" />
                     <instance-variable comment="Project ID" name="data1" sid="6491544920906493" type="string" />
+                    <instance-variable name="theSelectedId" sid="8066028394863949" type="string" />
+                    <instance-variable name="theSelectedPolicyNumber" sid="9474663049277354" type="string" />
+                    <instance-variable name="theSelectedAddress1" sid="6831092795526316" type="string" />
+                    <instance-variable name="theSelectedAddress2" sid="8866984834995276" type="string" />
+                    <instance-variable name="theSelectedCity" sid="8858786212836488" type="string" />
+                    <instance-variable name="theSelectedPostal" sid="4520911105745976" type="string" />
+                    <instance-variable name="theSelectedStatus" sid="7423668182629952" type="string" />
                 </instance-variables>
                 <texture />
             </object-type>
@@ -456,6 +530,48 @@
                     <instance-variable name="goto" sid="2112174664663535" type="string" />
                     <instance-variable name="action" sid="7009985378153634" type="string" />
                     <instance-variable comment="Project ID" name="data1" sid="3466555021430227" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectsTitle2" sid="6222131632138268">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectsTitleStatus" sid="4588728563969541">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectAction" sid="6562969014308825">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="thisProjectId" sid="3551598640618835" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectProperties" sid="7323692264682282">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="welcomeButton" sid="273896683345301">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="goto" sid="1433075280261898" type="string" />
+                    <instance-variable name="action" sid="8155456145596907" type="string" />
+                    <instance-variable comment="Project ID" name="data1" sid="5720576986302902" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectsTitle3" sid="7143429267489448">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="projectButtonStatusComplete" sid="3700357148613048">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="thisProjectId" sid="72005114022519" type="string" />
+                </instance-variables>
+                <texture />
+            </object-type>
+            <object-type name="projectButtonStatusRevisit" sid="4069721259878951">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="thisProjectId" sid="1234431295911423" type="string" />
                 </instance-variables>
                 <texture />
             </object-type>
@@ -516,7 +632,7 @@
         <object-type name="LocalStorage" sid="7589828050573314">
             <plugin id="LocalStorage" />
         </object-type>
-        <object-type global="1" name="DATABASE" sid="3033893655331199">
+        <object-type global="1" name="dbProjects" sid="3033893655331199">
             <plugin id="Rex_Firebase_ItemBook" />
         </object-type>
         <object-type global="1" name="Date" sid="7946153688510086">
@@ -530,6 +646,352 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type global="1" name="dbProject" sid="8921291094853599">
+            <plugin id="Rex_Firebase_ItemBook" />
+        </object-type>
+        <object-type name="projectUploadCsv" sid="4643205025300038">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="goto" sid="5585431145889303" type="string" />
+                <instance-variable name="action" sid="6788541027294432" type="string" />
+                <instance-variable comment="Project ID" name="data1" sid="5897772210803967" type="string" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type global="1" name="CSV" sid="1580710800828125">
+            <plugin id="Rex_CSV" />
+        </object-type>
+        <object-type name="Comments" sid="7014898516284151">
+            <plugin id="Rex_Comment" />
+        </object-type>
+        <object-type name="projectCreateProperty" sid="9730150847338444">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="goto" sid="8974185298316216" type="string" />
+                <instance-variable name="action" sid="9216720403948763" type="string" />
+                <instance-variable comment="Project ID" name="data1" sid="6057026584765961" type="string" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type global="1" name="dbProperties" sid="7562590784489068">
+            <plugin id="Rex_Firebase_ItemBook" />
+        </object-type>
+        <object-type name="AJAX" sid="6482357203729212">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type name="HTMLIFrame" sid="8895663382769287">
+            <plugin id="HTML_iFrame" />
+        </object-type>
+        <object-type name="Sprite" sid="4077777105564091">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="connecting" pingpong="0" repeatcount="1" repeatto="0" sid="9475562769226546" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\connection_0.png">
+                        <collision-poly>
+                            <point x="0.148649" y="0.148649" />
+                            <point x="0.5" y="0" />
+                            <point x="0.851351" y="0.148649" />
+                            <point x="1" y="0.5" />
+                            <point x="0.851351" y="0.851351" />
+                            <point x="0.5" y="1" />
+                            <point x="0.148649" y="0.851351" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="online" pingpong="0" repeatcount="1" repeatto="0" sid="9317793576387567" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\connection_2.png">
+                        <collision-poly>
+                            <point x="0.148649" y="0.148649" />
+                            <point x="0.5" y="0" />
+                            <point x="0.851351" y="0.148649" />
+                            <point x="1" y="0.5" />
+                            <point x="0.851351" y="0.851351" />
+                            <point x="0.5" y="1" />
+                            <point x="0.148649" y="0.851351" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="offline" pingpong="0" repeatcount="1" repeatto="0" sid="3376125822052622" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\C2\icons\connection_1.png">
+                        <collision-poly>
+                            <point x="0.148649" y="0.148649" />
+                            <point x="0.5" y="0" />
+                            <point x="0.851351" y="0.148649" />
+                            <point x="1" y="0.5" />
+                            <point x="0.851351" y="0.851351" />
+                            <point x="0.5" y="1" />
+                            <point x="0.148649" y="0.851351" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="JSON2" sid="2115447033524686">
+            <plugin id="Rex_Hash" />
+        </object-type>
+        <object-type global="1" name="JSON3" sid="8698674902385116">
+            <plugin id="Rex_Hash" />
+        </object-type>
+        <object-type name="TextBox" sid="3606654212083788">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="textNoSignal" sid="9692021906482716">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitBlurb" sid="7857668378864155">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitPolicyNumber" sid="175202229085031">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitAddress1" sid="8400782990041963">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitAddress2" sid="6143880264149596">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitCIty" sid="9140447152552379">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitPostal" sid="8704956855257385">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitStatus" sid="2511709131249219">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="textSubmitId" sid="8969142948295084">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="List" sid="9168630718301305">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="RadioCheckbox" sid="9426298837342972">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="TextBox2" sid="4072465593258632">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="TextBox3" sid="8142664203816741">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="FileChooser" sid="1515557328503637">
+            <plugin id="filechooser" />
+        </object-type>
+        <object-type name="UserMedia" sid="7053706285097706">
+            <plugin id="UserMedia" />
+        </object-type>
+        <object-type name="btnTakePhoto" sid="3865907640333431">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type global="1" name="imagesJson" sid="9937967363462415">
+            <plugin id="Rex_JSONBuider" />
+        </object-type>
+        <object-type global="1" name="JSONimages" sid="3983004814790817">
+            <plugin id="Rex_Hash" />
+        </object-type>
+        <object-type name="imageHolder0" sid="1953868277017006">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="4940014788786937" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7962446736625258" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="JSONimages2" sid="1547884079469628">
+            <plugin id="Rex_Hash" />
+        </object-type>
+        <object-type name="imageHolder1" sid="100099405830701">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="1999270500220947" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3310084526718195" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder2" sid="2154602064267061">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="2905879132030836" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3175155971273738" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder3" sid="5945262212133316">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="7106410441245125" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1551462178872088" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder4" sid="8836401449590987">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="5395494231375235" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3655673104129411" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder5" sid="2529128657663289">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="9561822040561555" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9401149929378283" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder6" sid="557284933433291">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="1730906215996747" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="475176051054536" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder7" sid="4510239967204641">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="2865593006793973" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5285744770161076" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="imageHolder8" sid="1005173982550165">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="slot" sid="8588646493598587" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2406838928096688" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="textCreateTitle" sid="2772063109794598">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TextBox4" sid="4402247799178201">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="TextBox5" sid="9324986433699764">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox2" sid="6262244436930586">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="List2" sid="2907690688842791">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="List3" sid="2562361732289491">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="TextBox6" sid="8181025225469111">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="List4" sid="6823673792814041">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="List5" sid="2742401558953523">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="TextBox7" sid="9133296389013587">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox3" sid="54776545325644">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox4" sid="1953305536281651">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="List6" sid="8285662267529343">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="TextBox8" sid="6824498768452303">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="TextBox9" sid="3264041577662176">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox5" sid="3044202765828226">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox6" sid="5659670846689228">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox7" sid="962358688447083">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="List7" sid="4127626877754301">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="RadioCheckbox8" sid="2496422459118686">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox9" sid="4708710400731169">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="TextBox10" sid="1153376771527184">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox10" sid="9859639355603337">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox11" sid="9939810616380284">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox12" sid="8182656045726028">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="TextBox11" sid="8898909934544831">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox13" sid="437197079648651">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="TextBox12" sid="1943104308700675">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="RadioCheckbox14" sid="5387735117996746">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="RadioCheckbox15" sid="7321999821214277">
+            <plugin id="RadioCheckButton" />
+        </object-type>
+        <object-type name="TextBox13" sid="267321022624651">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="saveReportButton" sid="9861046751728265">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -537,6 +999,10 @@
         <layout>Logout.xml</layout>
         <layout>Team.xml</layout>
         <layout>Projects.xml</layout>
+        <layout>Welcome.xml</layout>
+        <layout>OfflineReportsCreate.xml</layout>
+        <layout>OfflineReportsViewProjects.xml</layout>
+        <layout>OfflineReportsViewProject.xml</layout>
         <layout>Project.xml</layout>
         <layout>MasterMap.xml</layout>
         <layout>Menu.xml</layout>
@@ -549,6 +1015,10 @@
         <event-sheet>Projects.xml</event-sheet>
         <event-sheet>Login.xml</event-sheet>
         <event-sheet>Logout.xml</event-sheet>
+        <event-sheet>Welcome.xml</event-sheet>
+        <event-sheet>OfflineReportsViewProjects.xml</event-sheet>
+        <event-sheet>OfflineReportsCreate.xml</event-sheet>
+        <event-sheet>OfflineReportsViewProject.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="GoogleMapApi" uid="0">
@@ -568,6 +1038,8 @@
         </global-instance>
         <global-instance type="Mouse" uid="79" />
         <global-instance type="LocalStorage" uid="86" />
+        <global-instance type="Comments" uid="134" />
+        <global-instance type="AJAX" uid="138" />
     </global-instances>
     <sounds-folder />
     <music-folder />
